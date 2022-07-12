@@ -25,9 +25,9 @@ jobs:
       run: sudo npm install
     - name: Build
       run: |
-        sudo cd themes/sagiri
+        cd themes/sagiri
         sudo npm install
-        sudo cd ../..
+        cd ../..
         sudo npm run build
     - name: Write config
       env:
