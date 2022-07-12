@@ -8,39 +8,40 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Branch
-        uses: actions/checkout@master
-      - name: Run node
-        uses: actions/setup-node@master
-        with:
-          node-version: "v16.13.1"
-      - name: Install Dependencies-01
-        run: |
-          sudo npm install
-          sudo npm install hexo-cli -g
-          sudo pip install coscmd
-          sudo pip install tccli
-      - name: Install Dependencies-02
-        run: npm install
-      - name: Build
-        run: |
-          cd themes/sagiri
-          npm install
-          cd ../..
-          npm run build
-      - name: Write config
-        env:
-          SECRET_ID: ${{ secrets.COS_API_ID }}
-          SECRET_KEY: ${{ secrets.COS_API_KEY }}
-          BUCKET: ${{ secrets.COS_BUCKET }}
-          REGION: ap-shanghai
-        run: |
-          coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
-          tccli configure set secretId $SECRET_ID
-          tccli configure set secretKey $SECRET_KEY
-          tccli configure set region $REGION
-       - name: Deploy Release
-        run: |
-          coscmd upload -rfs --delete ./public/ /
-          tccli cdn PurgePathCache --cli-unfold-argument --Paths https://itan90.cn/ --FlushType flush
+    - name: Checkout Branch
+      uses: actions/checkout@master
+    - name: Run node
+      uses: actions/setup-node@master
+      with:
+        node-version: "v16.13.1"
+    - name: Install Dependencies-01
+      run: |
+        sudo npm install
+        sudo npm install hexo-cli -g
+        sudo pip install coscmd
+        sudo pip install tccli
+    - name: Install Dependencies-02
+      run: npm install
+    - name: Build
+      run: |
+        cd themes/sagiri
+        npm install
+        cd ../..
+         npm run build
+    - name: Write config
+      env:
+        SECRET_ID: ${{ secrets.COS_API_ID }}
+        SECRET_KEY: ${{ secrets.COS_API_KEY }}
+        BUCKET: ${{ secrets.COS_BUCKET }}
+        REGION: ap-shanghai
+      run: |
+        coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+        tccli configure set secretId $SECRET_ID
+        tccli configure set secretKey $SECRET_KEY
+        tccli configure set region $REGION
+    - name: Deploy Release
+      run: |
+        coscmd upload -rfs --delete ./public/ /
+        tccli cdn PurgePathCache --cli-unfold-argument --Paths https://itan90.cn/ --FlushType flush
