@@ -784,7 +784,7 @@ header_bg: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/ima
 card:
   avatar: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/images/DIYgod-avatar2.jpeg
   name: Mitsuha
-  description: 要开心,写代码是热爱，写到世界充满爱！
+  description: 写代码是热爱，写到世界充满爱！
 
 footer:
   # Specify the date when the site was setup.
