@@ -67,9 +67,9 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   首页: / || fas fa-meteor
-  实验室: javascript:; || fas fa-magic
   归档: /archives/ || fas fa-archive
-  友人: /friends/ || fas fa-mars-stroke
+  朋友: /friends/ || fas fa-mars-stroke
+  实验室: javascript:; || fas fa-magic
   关于我: /about/ || fas fa-heartbeat
 
 submenu:
@@ -119,7 +119,7 @@ links_layout: block
 links:
   友人C: https://www.ihewro.com/ || https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg || 大佬的博客.
   晴栀初眸: https://shackles.cn/ || https://shackles.cn/usr/themes/handsome/assets/img/avatar.jpg || 大佬的博客.
-  IChen.: https://blog.csdn.net/ichen820/ || https://profile.csdnimg.cn/4/2/9/1_ichen820 || 大佬的博客.
+  IChen.: https://blog.csdn.net/ichen820/ || http://q1.qlogo.cn/g?b=qq&nk=2690176419&s=640 || 大佬的博客.
   圈圈圆圆圈圈: https://www.hejingping.cn/ || http://q1.qlogo.cn/g?b=qq&nk=794215277&s=640 || 大佬的博客.
 
 # Sidebar Avatar
@@ -784,7 +784,7 @@ header_bg: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/ima
 card:
   avatar: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/images/DIYgod-avatar2.jpeg
   name: Mitsuha
-  description: 要开心。
+  description: 要开心,写代码是热爱，写到世界充满爱！
 
 footer:
   # Specify the date when the site was setup.
