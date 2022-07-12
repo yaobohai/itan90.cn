@@ -780,7 +780,7 @@ header_bg: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/ima
 card:
   avatar: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/images/DIYgod-avatar2.jpeg
   name: Mitsuha
-  description: 写代码是热爱，写到世界充满爱！
+  description: 不要忽视梦想。不要工作过久。说出想法。交朋友。要开心。
 
 footer:
   # Specify the date when the site was setup.
@@ -806,7 +806,7 @@ footer:
   # custom_text: 托管于<a href="https://github.com/" target="_blank" rel="nofollow"> GitHub</a>. <a href="https://www.upyun.com/" target="_blank" rel="nofollow">又拍云</a> 提供 CDN 服务. <a href="http://www.google.com/analytics/" target="_blank" rel="nofollow">Google Analytics </a>提供网站统计服务. <a href="https://www.cloudxns.net/" target="_blank" rel="nofollow">CloudXNS </a>提供 DNS 解析服务.
   sitemap: /sitemap.xml
 
-description: 写代码是热爱，写到世界充满爱！
+description: 不要忽视梦想。不要工作过久。说出想法。交朋友。要开心。
 
 # Theme version
 version: 1.0.13
