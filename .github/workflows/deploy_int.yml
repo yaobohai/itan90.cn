@@ -1,4 +1,4 @@
-name: Hexo Deploy
+name: 编译部署集成测试环境
 
 on:
   push:
