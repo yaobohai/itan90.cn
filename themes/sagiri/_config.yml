@@ -117,6 +117,10 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
+  友人C: https://www.ihewro.com/ || https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg || 大佬的博客.
+  晴栀初眸: https://shackles.cn/ || https://shackles.cn/usr/themes/handsome/assets/img/avatar.jpg || 大佬的博客.
+  IChen.: https://blog.csdn.net/ichen820/ || https://profile.csdnimg.cn/4/2/9/1_ichen820 || 大佬的博客.
+  圈圈圆圆圈圈: https://www.hejingping.cn/ || http://q1.qlogo.cn/g?b=qq&nk=794215277&s=640 || 大佬的博客.
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
