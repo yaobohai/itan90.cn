@@ -28,7 +28,7 @@ jobs:
         cd themes/sagiri
         sudo npm install
         cd ../..
-        sudo npm run build
+        sudo hexo generate
     - name: Write config
       env:
         SECRET_ID: ${{ secrets.COS_API_ID }}
