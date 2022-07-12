@@ -1,4 +1,4 @@
-name: Hexo Deploy
+name: 编译部署生产环境
 
 on:
   push:
