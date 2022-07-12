@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout Branch
       uses: actions/checkout@master
@@ -23,13 +22,13 @@ jobs:
         sudo pip install coscmd
         sudo pip install tccli
     - name: Install Dependencies-02
-      run: npm install
+      run: sudo npm install
     - name: Build
       run: |
-        cd themes/sagiri
-        npm install
-        cd ../..
-         npm run build
+        sudo cd themes/sagiri
+        sudo npm install
+        sudo cd ../..
+        sudo npm run build
     - name: Write config
       env:
         SECRET_ID: ${{ secrets.COS_API_ID }}
