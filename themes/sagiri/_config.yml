@@ -332,7 +332,14 @@ han: false
 #duoshuo_shortname:
 
 # Disqus
-
+disqus:
+  enable: true
+  shortname: Mitsuha
+  count: false
+  api: https://disqus.diygod.me/api/
+  apikey: IZpjHGnUJfL5dt6AovKVo20FzmZKYxH5cmgcmPsDbUPgvmEZpN882EhvzlYQ3nNe
+  admin: Mitsuha
+  adminLabel: 妹抖
 
 # Hypercomments
 #hypercomments_id:
