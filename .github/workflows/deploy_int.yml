@@ -22,7 +22,9 @@ jobs:
         sudo pip install coscmd
         sudo pip install tccli
     - name: Install Dependencies-02
-      run: sudo npm install
+      run: |
+        sudo npm install hexo-next-twikoo@1.0.0
+        sudo npm install
     - name: Build
       run: |
         cd themes/sagiri
