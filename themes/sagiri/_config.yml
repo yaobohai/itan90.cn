@@ -342,6 +342,8 @@ han: false
 twikoo:
   enable: true
   visitor: true
+  # twikoo的版本
+  version: 1.5.11
   envId: cloudbase-70cf3a
   region: ap-shanghai
 
