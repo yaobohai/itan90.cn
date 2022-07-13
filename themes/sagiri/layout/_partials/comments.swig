@@ -67,9 +67,9 @@
     <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
     <script>
     twikoo.init({
-         envId: 'cloudbase-70cf3a',
+         envId: "{{ theme.twikoo.envId }}",
          el: '#tcomment',
-         region: 'ap-shanghai',
+         region: "{{ theme.twikoo.region }}",
     })
     </script>
 
