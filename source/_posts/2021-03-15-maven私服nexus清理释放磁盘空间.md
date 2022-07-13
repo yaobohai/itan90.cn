@@ -23,11 +23,10 @@ thumbSmall:
 thumbStyle: default
 ---
 
-maven私服nexus清理释放磁盘空间 <!--more-->
+
+自建的maven私服（或者叫私仓）nexus在使用过程中，因很多服务不断迭代更新上传jar包至nexus中，底层存放在一个叫Blob Stores的存储中，开发通知maven只能下载依赖不能上传依赖了，登录nexus服务器发现该存储已增大至好几百G。 <!--more-->
 
 ## 应用背景
-
-自建的maven私服（或者叫私仓）nexus在使用过程中，因很多服务不断迭代更新上传jar包至nexus中，底层存放在一个叫Blob Stores的存储中，开发通知maven只能下载依赖不能上传依赖了，登录nexus服务器发现该存储已增大至好几百G。
 
 浏览器页面上传依赖报错：
 
