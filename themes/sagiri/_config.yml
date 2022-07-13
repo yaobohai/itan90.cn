@@ -343,7 +343,7 @@ twikoo:
   enable: true
   visitor: true
   # twikoo的版本
-  version: 1.5.11
+  version: 1.5.9
   envId: cloudbase-70cf3a
   region: ap-shanghai
 
