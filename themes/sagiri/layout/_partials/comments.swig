@@ -32,7 +32,6 @@
         </div>
       </div>
     </div>
-
   {% elseif theme.hypercomments_id %}
     <div class="comments" id="comments">
       <div id="hypercomments_widget"></div>
@@ -62,6 +61,17 @@
         <div id="gitment-container"></div>
       {% endif %}
     </div>
+
+  {% elseif theme.twikoo.enable %}
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+    <script>
+    twikoo.init({
+         envId: "{{ theme.twikoo.envId }}",
+         el: '#tcomment',
+         region: "{{ theme.twikoo.region }}",
+    })
+    </script>
 
   {% elseif theme.valine.appid and theme.valine.appkey %}
     <div class="comments" id="comments">
