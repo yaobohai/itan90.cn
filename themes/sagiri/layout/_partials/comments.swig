@@ -62,6 +62,17 @@
       {% endif %}
     </div>
 
+  {% elseif theme.twikoo.enable %}
+    <div id="tcomment"></div>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+    <script>
+    twikoo.init({
+         envId: 'cloudbase-70cf3a',
+         el: '#tcomment',
+         region: 'ap-shanghai',
+    })
+</script>
+
   {% elseif theme.valine.appid and theme.valine.appkey %}
     <div class="comments" id="comments">
       <div id="vcomments"></div>
