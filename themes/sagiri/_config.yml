@@ -117,7 +117,7 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  老博客: https://www.itan90.cn/ || http://q1.qlogo.cn/g?b=qq&nk=424079134&s=640 || 基于PHP&Typecho&Handsome部署
+  老博客: https://www.itan90.cn/ || http://q1.qlogo.cn/g?b=qq&nk=424079134&s=640 || 没有人知道的世界
   友人C: https://www.ihewro.com/ || https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg || 大佬的博客.
   晴栀初眸: https://shackles.cn/ || https://shackles.cn/usr/themes/handsome/assets/img/avatar.jpg || 大佬的博客.
   IChen.: https://blog.csdn.net/ichen820/ || http://q1.qlogo.cn/g?b=qq&nk=2690176419&s=640 || 大佬的博客.
@@ -225,7 +225,7 @@ bitcoin:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -253,7 +253,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night bright
 
 
 # ---------------------------------------------------------------
@@ -791,7 +791,7 @@ card:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  since: 11/7/2022 11:30:00
+  since: 7/11/2022 11:30:00
 
   # Icon between year and copyright info.
   icon: user

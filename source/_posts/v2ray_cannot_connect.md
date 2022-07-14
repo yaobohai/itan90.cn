@@ -23,7 +23,10 @@ thumbStyle: default
 ---
 
 
-某种情况下重启了一次持续运行长达半年的代理服务器；重启后v2ray炸了(实际上我也炸了) ; 什么配置都没有改的情况下竟不能使用了。连续两天都没时间看这个问题，今晚抽空解决了下；在此分享下  <!--more-->
+
+某种情况下重启了一次持续运行长达半年的代理服务器；重启后v2ray炸了(实际上我也炸了) ; 什么配置都没有改的情况下竟不能使用了。连续两天都没时间看这个问题，今晚抽空解决了下；在此分享下 <!--more-->
+
+## 阐述
 
 客户端通过代理访问网站浏览器报错：ERR_CONNECTION_TIMED_OUT
 
@@ -52,7 +55,7 @@ NoNewPrivileges=true
 
 # 这两段就是我们需要增加/修改的
 Environment="V2RAY_VMESS_AEAD_FORCED=false"
-ExecStart=/usr/bin/env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+ExecStart=/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
 
 Restart=on-failure
 RestartPreventExitStatus=23
@@ -92,9 +95,8 @@ VMessAEAD 协议已经经过同行评议并已经整合了相应的修改。 VMe
 更多内容参考: 
 
 底层传输配置说明文档：https://www.v2ray.com/chapter_02/05_transport.html 
-
 相关源码: 
-https://github.com/v2fly/v2ray-core/blob/a21e4a7deb2d60b40ea4ebcedf6e22a56dcb4d04/proxy/vmess/encoding/server.go#L200  
-https://github.com/v2fly/v2ray-core/blob/3ef7feaeaf737d05c5a624c580633b7ce0f0f1be/proxy/vmess/encoding/server.go#L194
+1、https://github.com/v2fly/v2ray-core/blob/a21e4a7deb2d60b40ea4ebcedf6e22a56dcb4d04/proxy/vmess/encoding/server.go#L200 
+2、https://github.com/v2fly/v2ray-core/blob/3ef7feaeaf737d05c5a624c580633b7ce0f0f1be/proxy/vmess/encoding/server.go#L194
 
 

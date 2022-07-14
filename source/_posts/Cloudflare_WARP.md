@@ -7,10 +7,6 @@ date: 2021/10/02 01:29:00
 updated: 2021/10/02 02:17:32
 status: publish
 author: sunday
-categories: 
-  - 技术分享
-tags: 
-  - V2RAY
 customSummary: 
 mathjax: auto
 noThumbInfoStyle: default
@@ -22,10 +18,6 @@ thumbDesc:
 thumbSmall: https://img.paulzzh.com/touhou/random
 thumbStyle: default
 ---
-
-来看看吧 <!--more-->
-
-## 介绍
 
 WARP是Cloudflare提供的一项基于WireGuard的网络流量安全及加速服务，能够让你通过连接到Cloudflare的边缘节点实现隐私保护及链路优化。它可以帮我们解决以下常见问题：
 
@@ -45,6 +37,7 @@ WARP 对外访问网络的 IP 被很多网站视为真实用户，即所谓的 `
 
 ![Google验证.png][1]
 
+<!--more-->
 
 ## 使用
 

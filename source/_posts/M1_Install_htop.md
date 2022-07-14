@@ -25,14 +25,18 @@ thumbSmall:
 thumbStyle: default
 ---
 
-来看看吧 <!--more-->
+`htop`是Linux上非常好的资源监视命令，不过在Mac上目前通过brew已经无法直接安装。不过我们可以找源码进行本地编译安装。这里记录下安装的过程
+![](https://resource.static.tencent.itan90.cn/202207/1657814226748343258.png)
 
-<p>目前通过brew已经无法直接安装。不过我们可以找源码进行本地编译安装。</p>
-<pre class="line-numbers"><code class="language-plain_text">$ wget https://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
+<!--more-->
+
+```
+$ wget https://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
 $ tar -zxvf htop-2.2.0.tar.gz
 $ cd htop-2.2.0/
 $ ./configure
 $ make
 $ sudo make install
-</code></pre>
-<p>安装完成后，执行<code>htop</code>命令查看效果</p>
+```
+
+安装完成后，执行`htop`命令查看效果

@@ -7,9 +7,6 @@ date: 2021/03/10 11:14:00
 updated: 2021/03/10 14:05:01
 status: publish
 author: sunday
-categories: 
-  - 默认分类
-tags: 
 customSummary: 
 mathjax: auto
 noThumbInfoStyle: default

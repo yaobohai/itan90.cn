@@ -7,8 +7,6 @@ date: 2021/11/13 00:06:00
 updated: 2022/03/25 10:11:16
 status: publish
 author: sunday
-categories: 
-  - 技术分享
 tags: 
 customSummary: 
 mathjax: auto
@@ -22,7 +20,7 @@ thumbSmall:
 thumbStyle: default
 ---
 
-来看看吧 <!--more-->
+一些经常用到的镜像源(Linux、npm、docker、等等)<!--more-->
 
 
 ## Linux 镜像源
