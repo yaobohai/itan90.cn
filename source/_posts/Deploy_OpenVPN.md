@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
 最近需要部署openvpn服务来实现电脑与另外一个服务器环境内网互通，在网上找到的多数的OpenVPN例子都是基于客户端密钥认证的，多个客户那就要多个密钥，这样配置服务端或者客户端都非常麻烦。

@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - MacOS
 ---
 
 安装ansible主程序

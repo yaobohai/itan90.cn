@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
 在局域网中有些服务器可能无法上网，但同局域网中的有些认证服务器可以联网，那么我们就可以在可以联网的服务器中配置该服务，让不能上网的服务器也实现网络通讯 <!--more-->

@@ -7,7 +7,8 @@ date: 2021/12/12 06:46:51
 updated: 2021/12/12 15:03:30
 status: publish
 author: sunday
-tags: 
+categories:
+  - 运维笔记
 ---
 
 

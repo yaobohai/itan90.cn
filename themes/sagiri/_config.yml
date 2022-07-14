@@ -77,6 +77,8 @@ submenu:
     下载: https://init.ac/
     监控: https://monitor.itan90.cn/
     图床: https://resource.static.tencent.itan90.cn/
+    脚本发布: https://mirrors.itan90.cn/
+    NAT PLANE: https://nat.itan90.cn/
 
 # Enable/Disable menu icons.
 menu_icons:

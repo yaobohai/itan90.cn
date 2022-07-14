@@ -17,6 +17,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: https://img.paulzzh.com/touhou/random
 thumbStyle: default
+categories:
+  - 技术分享
 ---
 
 实现场景:

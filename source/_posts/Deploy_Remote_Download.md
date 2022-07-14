@@ -7,9 +7,8 @@ date: 2021/12/19 15:35:00
 updated: 2022/04/17 13:39:37
 status: publish
 author: sunday
-categories: 
-  - 运维
-  - 技术分享
+categories:
+  - 实验室
 tags: 
 customSummary: 
 mathjax: auto

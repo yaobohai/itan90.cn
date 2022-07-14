@@ -7,8 +7,8 @@ date: 2022/06/12 20:13:40
 updated: 2022/06/12 20:13:52
 status: publish
 author: sunday
-categories: 
-  - 运维
+categories:
+  - 运维笔记
 tags: 
 customSummary: 
 mathjax: auto

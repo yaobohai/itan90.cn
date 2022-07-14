@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: https://cdn.jsdelivr.net/gh/ihewro/blog@master/usr/uploads/2018/11/2975346373.jpg
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
 在很多实践中，我们使用脚本通常情况下只能同时运行一个任务，但我们的需求往往不可能等脚本任务一个一个完成，这样既浪费时间又造成有脚本取值运行超时的风险。

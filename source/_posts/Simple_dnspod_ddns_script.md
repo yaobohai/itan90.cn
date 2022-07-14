@@ -7,8 +7,7 @@ date: 2022/06/04 22:53:08
 updated: 2022/06/04 23:05:30
 status: publish
 author: sunday
-categories: 
-  - SHELL
+categories:
   - 技术分享
 tags: 
 customSummary: 

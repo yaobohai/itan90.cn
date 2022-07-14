@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 技术分享
 ---
 
 一些经常用到的镜像源(Linux、npm、docker、等等)<!--more-->

@@ -17,6 +17,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
 使用二进制包部署单节点环境，数据持久化到MySQL数据库。因此，需要先部署MySQL、JDK >= 1.8 版本基础环境。<!--more-->

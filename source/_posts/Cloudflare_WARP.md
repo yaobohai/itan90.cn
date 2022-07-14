@@ -17,6 +17,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: https://img.paulzzh.com/touhou/random
 thumbStyle: default
+categories:
+  - 技术分享
 ---
 
 WARP是Cloudflare提供的一项基于WireGuard的网络流量安全及加速服务，能够让你通过连接到Cloudflare的边缘节点实现隐私保护及链路优化。它可以帮我们解决以下常见问题：

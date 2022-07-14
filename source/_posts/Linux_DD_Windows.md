@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 技术分享
 ---
 
 为什么国外的小鸡同配下windows比linux贵那么多，与国内不同，歪果仁版权意识非常高，windows软件及windows本身都是收费的，再加上歪果的程序员大多数都是基于linux开发，windows服务器维护技术人员少，物以稀为贵。 <!--more--> 

@@ -18,6 +18,8 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 技术分享
 ---
 
 公司内部Gitlab的端口是10080，Chrome访问这个端口会报错：ERR_UNSAFE_PORT

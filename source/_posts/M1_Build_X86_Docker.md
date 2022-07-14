@@ -7,12 +7,8 @@ date: 2021/11/19 20:35:00
 updated: 2022/03/20 23:04:39
 status: publish
 author: sunday
-categories: 
-  - 默认分类
+categories:
   - MacOS
-  - 技巧分享
-tags: 
-  - 博客文档
 customSummary: 
 mathjax: auto
 noThumbInfoStyle: default
