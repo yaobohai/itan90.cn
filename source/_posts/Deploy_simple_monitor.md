@@ -22,7 +22,10 @@ thumbSmall:
 thumbStyle: default
 ---
 
-部署挺简单的 服务端通过Go编写 开箱即用 少有的好监控 成品： [https://monitor.itan90.cn/][1]  <!--more-->
+部署挺简单的 服务端通过Go编写 开箱即用 少有的好监控 成品： [https://monitor.itan90.cn/][1] 
+![](https://resource.static.tencent.itan90.cn/202207/1657817452486629462.png)
+
+<!--more-->
 
 ## 基本环境
 
