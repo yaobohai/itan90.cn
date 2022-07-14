@@ -7,6 +7,6 @@
 </p>
 <script type="text/javascript">
   host = window.location.host
-  if (host == "itan90.cn") { document.write("<div><p>当前环境: 正式环境</p><div>"); } else { 当前环境: 预发布环境或集成测试环境  }
+  if (host == "itan90.cn") { document.write("<div><p>当前环境: 正式环境</p><div>"); } else { document.write("<div><p>当前环境: 预发布环境或集成测试环境</p><div>"); }
 </script>
 <p>Made with <i class="fas fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span>. </p>
