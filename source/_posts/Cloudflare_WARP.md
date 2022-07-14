@@ -79,6 +79,6 @@ WARP 对外访问网络的 IP 被很多网站视为真实用户，即所谓的 `
     真实 IPV6 地址: 240e:388...
 
 
-  [1]: https://itan90.cn/usr/uploads/2021/10/2137242486.png
-  [2]: https://itan90.cn/usr/uploads/2021/10/3504884713.png
-  [3]: https://itan90.cn/usr/uploads/2021/10/1089779469.png
+  [1]: https://www.itan90.cn/usr/uploads/2021/10/2137242486.png
+  [2]: https://www.itan90.cn/usr/uploads/2021/10/3504884713.png
+  [3]: https://www.itan90.cn/usr/uploads/2021/10/1089779469.png
