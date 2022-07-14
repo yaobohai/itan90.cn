@@ -7,9 +7,8 @@ date: 2022/06/05 00:06:00
 updated: 2022/06/05 00:08:58
 status: publish
 author: sunday
-categories: 
-  - 运维
-  - 技术分享
+categories:
+  - 运维笔记
 tags: 
 customSummary: 
 mathjax: auto
@@ -23,14 +22,10 @@ thumbSmall:
 thumbStyle: default
 ---
 
-来看看吧 <!--more-->
+部署挺简单的 服务端通过Go编写 开箱即用 少有的好监控 成品： [https://monitor.itan90.cn/][1] 
+![](https://resource.static.tencent.itan90.cn/202207/1657817452486629462.png)
 
-
-## 介绍
-
-...
-
-成品： [https://monitor.itan90.cn/][1]
+<!--more-->
 
 ## 基本环境
 

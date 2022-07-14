@@ -77,6 +77,8 @@ submenu:
     下载: https://init.ac/
     监控: https://monitor.itan90.cn/
     图床: https://resource.static.tencent.itan90.cn/
+    脚本发布: https://mirrors.itan90.cn/
+    NAT PLANE: https://nat.itan90.cn/
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -106,6 +108,8 @@ scheme: Pisces
 
 social:
   Twitter: "https://twitter.com/bohai0814 || <i class=\"fab fa-twitter\" style=\"color: #2FB0EC\"></i><span>Mitsuha</span>"
+  RSS: "/atom.xml || <i style=\"fill: #F78422;\"><svg t=\"1581190724531\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"16212\"><path d=\"M512 0a512 512 0 1 0 512 512A512 512 0 0 0 512 0z m-130.72 736a71.84 71.84 0 0 1-38.72 38.4 74.24 74.24 0 0 1-56.8 0 72.64 72.64 0 0 1-38.4-38.4 73.44 73.44 0 0 1 16-80 72.48 72.48 0 0 1 22.88-16 72.96 72.96 0 0 1 96 96z m192 32a51.84 51.84 0 0 1-88.32-36.64 187.52 187.52 0 0 0-15.2-75.04 194.08 194.08 0 0 0-102.72-102.72 186.72 186.72 0 0 0-75.04-15.2 51.84 51.84 0 0 1 0-103.52 284.64 284.64 0 0 1 115.2 23.52 300.64 300.64 0 0 1 157.76 157.76 284.96 284.96 0 0 1 23.52 115.2 49.92 49.92 0 0 1-15.52 37.44z m195.84 0a51.84 51.84 0 0 1-88.48-36.64 378.72 378.72 0 0 0-13.92-103.2 393.92 393.92 0 0 0-39.2-92.96 389.92 389.92 0 0 0-232.48-177.76 380 380 0 0 0-103.2-13.92 51.84 51.84 0 0 1-36.64-88.48 49.92 49.92 0 0 1 36.48-15.04 483.2 483.2 0 0 1 130.72 17.6 494.08 494.08 0 0 1 344 344 483.2 483.2 0 0 1 17.6 130.72 50.08 50.08 0 0 1-15.2 36.48z\" p-id=\"16213\"></path></svg></i><span>RSS</span>"
+  GitHub: "https://github.com/yaobohai || <i class=\"fab fa-github\" style=\"color: #191717\"></i><span>Github</span>"
 social_icons:
   enable: true
   icons_only: true
@@ -117,12 +121,13 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  老博客: https://www.itan90.cn/ || http://q1.qlogo.cn/g?b=qq&nk=424079134&s=640 || 基于PHP&Typecho&Handsome部署
+  老博客: https://www.itan90.cn/ || http://q1.qlogo.cn/g?b=qq&nk=424079134&s=640 || 没有人知道的世界
   友人C: https://www.ihewro.com/ || https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg || 大佬的博客.
   晴栀初眸: https://shackles.cn/ || https://shackles.cn/usr/themes/handsome/assets/img/avatar.jpg || 大佬的博客.
   IChen.: https://blog.csdn.net/ichen820/ || http://q1.qlogo.cn/g?b=qq&nk=2690176419&s=640 || 大佬的博客.
   圈圈圆圆圈圈: https://www.hejingping.cn/ || http://q1.qlogo.cn/g?b=qq&nk=794215277&s=640 || 大佬的博客.
   DGIDEAS' BLOG: https://dgideas.net/ || https://avatars.githubusercontent.com/u/4065128?v=4 || 大佬的博客.
+  Mr.Pu 个站博客: https://www.putianhui.cn/ || https://resource.static.tencent.itan90.cn/202207/16578154653429344.jpeg || 今日事，今日毕.
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -224,7 +229,7 @@ bitcoin:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -341,7 +346,8 @@ han: false
 
 twikoo:
   enable: true
-  visitor: true
+  # twikoo的版本
+  version: 1.5.11
   envId: cloudbase-70cf3a
   region: ap-shanghai
 
@@ -507,7 +513,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: hRDdibVwWhuIGMhhzAMXiFYG-MdYXbMMI
   app_key: DB8u9iGG8iMTGAGOKz28lIer
 
@@ -789,7 +795,7 @@ card:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  since: 11/7/2022 11:30:00
+  since: 7/11/2022 11:30:00
 
   # Icon between year and copyright info.
   icon: user

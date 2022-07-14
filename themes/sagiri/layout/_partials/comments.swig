@@ -64,7 +64,7 @@
 
   {% elseif theme.twikoo.enable %}
     <div id="tcomment"></div>
-    <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+    <script src="https://cdn.staticfile.org/twikoo/{{ theme.twikoo.version }}/twikoo.all.min.js"></script>
     <script>
     twikoo.init({
          envId: "{{ theme.twikoo.envId }}",

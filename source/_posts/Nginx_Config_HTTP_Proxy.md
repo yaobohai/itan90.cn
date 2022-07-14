@@ -7,8 +7,6 @@ date: 2021/08/05 13:43:00
 updated: 2021/08/05 13:50:47
 status: publish
 author: sunday
-categories: 
-  - 运维
 tags: 
 customSummary: 
 mathjax: auto
@@ -20,11 +18,11 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
-来看看吧 <!--more--> 
-
-
+在局域网中有些服务器可能无法上网，但同局域网中的有些认证服务器可以联网，那么我们就可以在可以联网的服务器中配置该服务，让不能上网的服务器也实现网络通讯 <!--more-->
 
 ## 配置
 
@@ -98,4 +96,4 @@ HTTPS段落：
 看这个链接：https://my.oschina.net/tangshi/blog/699190
 
 
-  [1]: https://itan90.cn/usr/uploads/2021/08/938219213.png
+  [1]: https://www.itan90.cn/usr/uploads/2021/08/938219213.png

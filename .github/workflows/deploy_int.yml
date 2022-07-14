@@ -23,7 +23,6 @@ jobs:
         sudo pip install tccli
     - name: Install Dependencies-02
       run: |
-        sudo npm install hexo-next-twikoo@1.0.0
         sudo npm install
     - name: Build
       run: |

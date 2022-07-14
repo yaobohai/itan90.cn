@@ -7,14 +7,10 @@ date: 2021/12/12 06:46:51
 updated: 2021/12/12 15:03:30
 status: publish
 author: sunday
-categories: 
-  - 默认分类
-tags: 
+categories:
+  - 运维笔记
 ---
 
-来看看吧 <!--more-->
-
-## 问题描述
 
 修改系统时间并重启节点后，节点上的存量 pod 出现无法正常 running，容器`sandbox`在不断重启的现象。并且kubelet组件日志也一直报错`kubelet.go:2248] node "master" not found`
 
@@ -23,6 +19,8 @@ tags:
 ![](https://oss.itan90.cn/2021/12/12/16392916682928.jpg)
 
 找到以上报错后删除cantainer后仍无法解决。
+
+<!--more-->
 
 ## 结论先行
 

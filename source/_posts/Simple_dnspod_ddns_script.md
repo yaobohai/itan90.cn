@@ -7,8 +7,7 @@ date: 2022/06/04 22:53:08
 updated: 2022/06/04 23:05:30
 status: publish
 author: sunday
-categories: 
-  - SHELL
+categories:
   - 技术分享
 tags: 
 customSummary: 
@@ -23,14 +22,9 @@ thumbSmall:
 thumbStyle: default
 ---
 
-来看看吧 <!--more-->
+DDNS（Dynamic Domain Name Server）是动态域名服务的缩写。 DDNS是将用户的动态IP地址映射到一个固定的域名解析服务上，用户每次连接网络的时候客户端程序就会通过信息传递把该主机的动态IP地址传送给位于服务商主机上的服务器程序，服务器程序负责提供DNS服务并实现动态域名解析
 
-
-## 介绍
-
-DDNS（Dynamic Domain Name Server）是动态域名服务的缩写。 DDNS是将用户的动态IP地址映射到一个固定的域名解析服务上，用户每次连接网络的时候客户端程序就会通过信息传递把该主机的动态IP地址传送给位于服务商主机上的服务器程序，服务器程序负责提供DNS服务并实现动态域名解析。
-
-假设当前你的家庭IP地址为`1.1.1.1`；那么简单的就可理解为 `脚本更新解析记录 --> ddns.xxx.com--> 用户访问--> ddns.xxx.com--> 1.1.1.1--> 脚本更新解析记录`；这么形成一个回环的过程，再结合`crontab`即可完成自动更新:[crontab表达式生成在线参考][1]
+假设当前你的家庭IP地址为`1.1.1.1`；那么简单的就可理解为 `脚本更新解析记录 --> ddns.xxx.com--> 用户访问--> ddns.xxx.com--> 1.1.1.1--> 脚本更新解析记录`；这么形成一个回环的过程，再结合`crontab`即可完成自动更新:[crontab表达式生成在线参考][1] <!--more-->
 
 ## 安装依赖包
 

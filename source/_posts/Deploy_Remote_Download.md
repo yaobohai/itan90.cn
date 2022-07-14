@@ -7,9 +7,8 @@ date: 2021/12/19 15:35:00
 updated: 2022/04/17 13:39:37
 status: publish
 author: sunday
-categories: 
-  - 运维
-  - 技术分享
+categories:
+  - 实验室
 tags: 
 customSummary: 
 mathjax: auto
@@ -22,14 +21,12 @@ thumbDesc:
 thumbSmall: 
 thumbStyle: default
 ---
-
-来看看吧 <!--more-->
-
-## 前言
-
-参考开源项目：[https://github.com/OrdosX/remote-downloader][1]
-
+  
 部署在服务器上的下载工具，利用海外高带宽的优势做跳板加速本地下载，主要用于加速国内下载缓慢的国外资源。
+
+![](https://oss.itan90.cn/out_pic/2022-07-11/tTEM6V.png)
+
+<!--more-->
 
 ## 部署
 

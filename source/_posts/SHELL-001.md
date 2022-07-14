@@ -7,8 +7,6 @@ date: 2021/04/20 14:31:00
 updated: 2021/04/20 16:09:20
 status: publish
 author: sunday
-categories: 
-  - SHELL
 tags: 
 customSummary: 
 mathjax: auto
@@ -20,11 +18,14 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: https://cdn.jsdelivr.net/gh/ihewro/blog@master/usr/uploads/2018/11/2975346373.jpg
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
-在很多实践中，我们使用脚本通常情况下只能同时运行一个任务，但我们的需求往往不可能等脚本任务一个一个完成，这样既浪费时间又造成有脚本取值运行超时的风险。 <!--more-->
+在很多实践中，我们使用脚本通常情况下只能同时运行一个任务，但我们的需求往往不可能等脚本任务一个一个完成，这样既浪费时间又造成有脚本取值运行超时的风险。
 
 shell实现起来并发和其他编程语言类似，比如Go...等等，下面我用具体的代码来实现效果：
+<!--more-->
 
     
     num_list='1 2 3 4 5 6 7 8 9 10'
@@ -52,7 +53,7 @@ shell实现起来并发和其他编程语言类似，比如Go...等等，下面�
 ![模拟][1]
 
 
-  [1]: https://itan90.cn/usr/uploads/2021/04/2568294713.png
+  [1]: https://www.itan90.cn/usr/uploads/2021/04/2568294713.png
 
 可以注意到，我们执行脚本并放到后台后，通过ps -ef查看脚本进程，脚本进程返回10个任务。
 

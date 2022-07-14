@@ -1,14 +1,12 @@
 ---
 layout: post
 cid: 93
-title: CentOS7安装部署OpenVPN服务
+title: CentOS7部署OpenVPN服务
 slug: 93
 date: 2022/03/09 00:25:00
 updated: 2022/05/10 01:18:22
 status: publish
 author: sunday
-categories: 
-  - 运维
 tags: 
 customSummary: 
 mathjax: auto
@@ -20,35 +18,30 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 运维笔记
 ---
 
-来看看吧 <!--more-->
-
-## 概述
-
-
 最近需要部署openvpn服务来实现电脑与另外一个服务器环境内网互通，在网上找到的多数的OpenVPN例子都是基于客户端密钥认证的，多个客户那就要多个密钥，这样配置服务端或者客户端都非常麻烦。
-
-[scode type="yellow"]建议使用TCP部署服务[/scode]
 
 本次文章主要实现功能: 
 
 - 容易安装
 - 容易配置
 - 多个账号
-- 客户端仅需导入一个配置
+- 客户端仅需导入一个配置 <!--more-->
 
-## 部署环境
+这里建议是使用TCP部署服务
 
+## 环境准备
 
-环境资源
-
+### 使用主机
 |  IP        |  系统                   | 端口       | 作用       | 
 | ---------- | ---------------------------- | ---------- |---------- |
 |    106.212.66.32        | CentOS Linux release 7.9.2009 (Core)  | 5001/tcp |OpenVPN 服务器 |
 |    192.168.50.1        | ------  | ----- | 内网测试服务器 |
 
-网络分配
+### 网络分配
 
 |  IP        |  作用       | 
 | ---------- | ---------- |
@@ -56,7 +49,7 @@ thumbStyle: default
 | 192.168.50.0/24  |    内网通讯网段    | 
 
 
-软件资源
+### 软件资源
 
 |  软件名称       |  版本      |
 | ---------- | ---------- |

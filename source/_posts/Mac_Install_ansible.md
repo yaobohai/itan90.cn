@@ -7,9 +7,6 @@ date: 2021/11/06 12:23:00
 updated: 2022/03/20 23:05:09
 status: publish
 author: sunday
-categories: 
-  - 默认分类
-  - MacOS
 tags: 
 customSummary: 
 mathjax: auto
@@ -21,16 +18,16 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - MacOS
 ---
-
-来看看吧 <!--more-->
-
 
 安装ansible主程序
 
 ```shell
 brew install ansible
 ```
+<!--more-->
 
 安装sshpass
 

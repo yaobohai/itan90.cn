@@ -7,10 +7,6 @@ date: 2021/11/12 19:12:00
 updated: 2022/03/20 23:05:01
 status: publish
 author: sunday
-categories: 
-  - 技术分享
-  - MacOS
-  - 技巧分享
 tags: 
 customSummary: 
 mathjax: auto
@@ -22,12 +18,14 @@ thumbChoice: default
 thumbDesc: 
 thumbSmall: 
 thumbStyle: default
+categories:
+  - 技术分享
 ---
-
-来看看吧 <!--more-->
 
 公司内部Gitlab的端口是10080，Chrome访问这个端口会报错：ERR_UNSAFE_PORT
 ![](https://oss.itan90.cn/2021/11/13/16367446004919.jpg)
+
+<!--more-->
 
 这种情况下就比较恶心了，为了解决这个问题，我们是可以直接修改启动Chrome的参数来解决，可参考以下方式：
 
