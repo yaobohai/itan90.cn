@@ -123,6 +123,7 @@ links:
   IChen.: https://blog.csdn.net/ichen820/ || http://q1.qlogo.cn/g?b=qq&nk=2690176419&s=640 || 大佬的博客.
   圈圈圆圆圈圈: https://www.hejingping.cn/ || http://q1.qlogo.cn/g?b=qq&nk=794215277&s=640 || 大佬的博客.
   DGIDEAS' BLOG: https://dgideas.net/ || https://avatars.githubusercontent.com/u/4065128?v=4 || 大佬的博客.
+  Mr.Pu 个站博客: https://www.putianhui.cn/ || https://oss.putianhui.cn/admin/touxiang.jpg || 今日事，今日毕.
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -341,9 +342,8 @@ han: false
 
 twikoo:
   enable: true
-  visitor: true
   # twikoo的版本
-  version: 1.5.9
+  version: 1.5.11
   envId: cloudbase-70cf3a
   region: ap-shanghai
 
