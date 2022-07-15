@@ -7,8 +7,8 @@ categories:
   
 扫描下方二维码领取红包:
 
-![](https://resource.static.tencent.itan90.cn/202207/1657848753580286416.png)
+<img src="https://resource.static.tencent.itan90.cn/202207/1657848753580286416.png" width="50%" height="50%">
 
-![](https://resource.static.tencent.itan90.cn/202207/1657849215894133879.jpg)
+<img src="https://resource.static.tencent.itan90.cn/202207/1657849215894133879.jpg" width="50%" height="50%">
 
  <!--more--> 
