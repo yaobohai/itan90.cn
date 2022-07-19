@@ -338,6 +338,8 @@
       </div>
     {% endif %}
 
+    <p>文章看完了,有疑问想评论,看不到评论框? 刷新试试呗</p>
+
     <footer class="post-footer">
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
