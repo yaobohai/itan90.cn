@@ -338,9 +338,11 @@
       </div>
     {% endif %}
 
-    <div>
-      {% include 'tips.swig' with { post: post } %}
-    </div>
+    {% if not is_index %}
+      <div>
+        {% include 'tips.swig' with { post: post } %}
+      </div>
+    {% endif %}
 
     <footer class="post-footer">
       {% if post.tags and post.tags.length and not is_index %}
