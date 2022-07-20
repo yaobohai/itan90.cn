@@ -1,22 +1,6 @@
 ---
-layout: post
-cid: 7
-title: Shell开发笔记
-slug: 7
-date: 2021/03/10 11:14:00
-updated: 2021/03/10 14:05:01
-status: publish
-author: sunday
-customSummary: 
-mathjax: auto
-noThumbInfoStyle: default
-outdatedNotice: no
-reprint: standard
-thumb: 
-thumbChoice: default
-thumbDesc: 
-thumbSmall: 
-thumbStyle: default
+title: SHELL笔记-01
+date: 2022/07/15 10:00:00
 categories:
   - 运维笔记
 ---
