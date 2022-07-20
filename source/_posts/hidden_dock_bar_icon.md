@@ -42,7 +42,7 @@ thumbStyle: default
 
 第四步: 重启软件；图标消失
 
-  [1]: https://s3.oss.oracle.itan90.cn/i/2022/03/20/12bn9z7.png
+  [1]: https://oss.itan90.cn/out_pic/2022-07-20/DKATAb.jpg
 
 ---------
 

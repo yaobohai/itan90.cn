@@ -27,7 +27,7 @@ self.addEventListener('activate', (event) => {
 
 
 core.setCacheNameDetails({
-    prefix: 'hidiygod',
+    prefix: 'hiMitsuha',
     suffix: cacheSuffixVersion
 });
 

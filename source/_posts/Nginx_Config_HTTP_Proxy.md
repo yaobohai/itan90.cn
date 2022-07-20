@@ -96,4 +96,4 @@ HTTPS段落：
 看这个链接：https://my.oschina.net/tangshi/blog/699190
 
 
-  [1]: https://www.itan90.cn/usr/uploads/2021/08/938219213.png
+  [1]: https://oss.itan90.cn/out_pic/2022-07-20/I8xKIT.jpg

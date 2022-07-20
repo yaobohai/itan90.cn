@@ -117,5 +117,5 @@ export https_proxy='http://流量转发端IP:8118'
 ```
 
 
-  [1]: https://www.itan90.cn/usr/uploads/2021/09/2251904992.png
-  [2]: https://www.itan90.cn/usr/uploads/2021/09/2852749365.png
+  [1]: https://oss.itan90.cn/out_pic/2022-07-20/vUJoYH.jpg
+  [2]: https://oss.itan90.cn/out_pic/2022-07-20/1NHfCX.jpg

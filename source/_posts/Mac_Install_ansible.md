@@ -53,7 +53,7 @@ sudo make install
 ```
 ansible --version
 ```
-![](https://s3.oss.oracle.itan90.cn/i/2021/11/06/k9n0d6.png)
+![](https://oss.itan90.cn/out_pic/2022-07-20/Wrb9uW.jpg)
 
 配置主机组
 ```
