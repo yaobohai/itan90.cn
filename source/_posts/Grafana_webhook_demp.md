@@ -17,6 +17,8 @@ Webhooks可以理解为满足特定的事件触发时（例如git push代码后�
 
 ![](https://oss.itan90.cn/out_pic/2022-07-21/N5J4qT.jpg)
 
+ <!--more-->
+
 ## webhook程序编写
 
 ### 1. 需求分析
