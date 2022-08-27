@@ -47,12 +47,7 @@ WARP 对外访问网络的 IP 被很多网站视为真实用户，即所谓的 `
 
 ### 获取脚本
 
-    $ wget http://mirrors.itan90.cn/CFWarp-Pro/multi.sh && bash multi.sh
-
-原作者脚本地址如下 (因升级内核版本脚本404；所以我Fork了一份)
-
-    # $ wget https://raw.githubusercontent.com/aitlp/CFWarp-Pro/main/multi.sh
-
+    $ wget http://mirrors.itan90.cn/scripts/net/CFWarp-Pro/multi.sh && bash multi.sh
 
 ### 升级内核
 
