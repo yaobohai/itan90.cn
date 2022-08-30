@@ -17,19 +17,19 @@ jobs:
         node-version: "v16.13.1"
     - name: Install Dependencies-01
       run: |
-        sudo npm install
-        sudo npm install hexo-cli -g
+        npm install
+        npm install hexo-cli -g
         sudo pip install coscmd
         sudo pip install tccli
     - name: Install Dependencies-02
       run: |
-        sudo npm install
+        npm install
     - name: Build
       run: |
         cd themes/sagiri
-        sudo npm install
+        npm install
         cd ../..
-        sudo hexo generate
+        hexo generate
     - name: Write config
       env:
         SECRET_ID: ${{ secrets.COS_API_ID }}

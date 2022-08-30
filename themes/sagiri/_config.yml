@@ -30,7 +30,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Mitsuha,blog,姚博海"
+keywords: "Mitsuha,blog,姚博海,没有人知道的世界"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -790,7 +790,7 @@ header_bg: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/ima
 
 card:
   avatar: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/images/DIYgod-avatar2.jpeg
-  name: Mitsuha
+  name: 没有人知道的世界
   description: 写代码是热爱，写到世界充满爱！
 
 footer:
