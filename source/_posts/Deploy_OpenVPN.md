@@ -29,7 +29,8 @@ categories:
 - 容易安装
 - 容易配置
 - 多个账号
-- 客户端仅需导入一个配置 <!--more-->
+- 客户端仅需导入一个配置 
+- Prometheus监控 <!--more-->
 
 这里建议是使用TCP部署服务
 
@@ -124,6 +125,11 @@ dh /etc/openvpn/server/easy-rsa/pki/dh.pem
 tls-auth /etc/openvpn/server/easy-rsa/ta.key 0
 
 auth-user-pass-verify /etc/openvpn/server/user/checkpsw.sh via-env
+
+# 把openvpn的状态写入日志中,单位秒
+status  /var/log/openvpn/status.log 3
+# 配合status，记录客户端字段：虚拟地址，虚拟IPv6地址，用户名，客户端ID，对等ID
+status-version 3
 
 script-security 3
 verify-client-cert none
@@ -317,6 +323,46 @@ remote-cert-tls server
 ![](https://oss.itan90.cn/2022/03/09/16467595699012.jpg)
 
 
+## 监控
+
+这里使用Prometheus [openvpn_exporter](https://github.com/kumina/openvpn_exporter/) 的方式来进行监控；因为前面我们已经在vpn的配置文件中写入了状态文件，所以openvpn服务端启动后，我们就可以直接进行监控。
+
+以docker的方式在openvpn服务端启动的exrporter为例：
+
+```shell
+docker run -itd -p 9176:9176 --name openvpn_exporter \
+  -v /var/log/openvpn/status.log:/etc/openvpn_exporter/server.status \
+  -v /etc/localtime:/etc/localtime \
+  kumina/openvpn-exporter -openvpn.status_paths /etc/openvpn_exporter/server.status
+```
+
+启动后，访问 `http://127.0.0.1:9176/metrics` 的方式进行请求测试，若无问题，则返回一下示例：
+
+```shell
+[root@localhost ~]# curl 127.0.0.1:9176/metrics
+# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 8.9293e-05
+go_gc_duration_seconds{quantile="0.25"} 0.000138057
+go_gc_duration_seconds{quantile="0.5"} 0.000184327
+......
+```
+
+接着在Prometheus的配置文件prometheus.yml中配置exporter的JOB
+
+```shell
+  - job_name: openvpn-metrics
+    static_configs:
+      - targets: ['IP:9176']
+```
+
+Prometheus配置重载后，即可。接着在普罗米修斯中查询语句，也可正常返回数据
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2022-09-23/8c2a-4d40-b688-9b70bcedda9e.png)
+
+关于Grafana面板，则使用ID为 [10562](https://grafana.com/grafana/dashboards/10562-openvpn-server/) 的即可,最终效果如下：
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2022-09-23/46EFBF0A-A71F-454A-AE0E-BADA9E30BE5F.png)
 
 ## 运维
 
