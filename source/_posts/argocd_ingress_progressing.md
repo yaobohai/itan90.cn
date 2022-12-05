@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NACOS数据持久化部署
+title: 解决ArgoCD Ingress资源一直处于Progressing状态
 date: 2022/12/05 22:50:00
 updated: 2022/12/05 22:50:00
 categories:
@@ -8,6 +8,8 @@ categories:
 ---
   
 ![](https://resource.static.tencent.itan90.cn/202212/167025207810926729.png)
+
+<!--more-->
 
 这个问题，其实需要分版本做不同的处理。
 
