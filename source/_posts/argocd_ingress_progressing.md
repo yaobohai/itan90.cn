@@ -9,17 +9,11 @@ categories:
   
 ![](https://resource.static.tencent.itan90.cn/202212/167025207810926729.png)
 
+这个问题，其实需要分版本做不同的处理,是通过ArgoCD健康检查的自定义的资源检查来排除对Ingress的检查。
+
 <!--more-->
 
-这个问题，其实需要分版本做不同的处理。
-
-主要是通过ArgoCD健康检查的自定义的资源检查来排除对Ingress的检查，主要请参考这三篇文章：
-
-https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#ingress
-https://github.com/argoproj/argo-cd/issues/1704   
-https://argoproj.github.io/argo-cd/operator-manual/health/#custom-health-checks  
-
-主要解决步骤如下：
+具体解决步骤如下：
 
 ``` shell
 kubectl edit cm -n argocd argocd-cm
@@ -62,3 +56,9 @@ argocd app sync <Your APP> --force
 ```
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2022-12-05/2MwR8V.png)
+
+更多参考这三篇文章：
+
+https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#ingress
+https://github.com/argoproj/argo-cd/issues/1704   
+https://argoproj.github.io/argo-cd/operator-manual/health/#custom-health-checks  
