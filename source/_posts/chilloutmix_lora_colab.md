@@ -1,12 +1,10 @@
 ---
 layout: post
-title: 通过colab零成本生成 AI 照片 -- ChilloutMix & Lora
-date:2023/02/26 22:50:00
-updated: 2023/02/26 22:50:00
-categories:
-  - AI技术
+title: 体验通过colab以及ChilloutMix&Lora零成本生成AI照片
+date: 2023/02/26 22:50:00
+categories: AI技术
 ---
-  
+
 使用colab运算资源来体验AI生成照片，现看下最终效果
 
 ![使用 Stable Diffusion 生成的照片](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/WjDPGO.jpg)
