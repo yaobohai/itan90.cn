@@ -5,9 +5,9 @@ date: 2023/02/26 22:50:00
 categories: AI技术
 ---
 
-Google的colab运算算力可以免费提供13GiB的内存以及15G GPU、80G硬盘，因此，我们可以借助改资源来体验stable-diffusion项目
+得益于Google的colab可以为我们免费提供13GiB的内存以及15GiB GPU、80GiB硬盘的运算算力，因此，可以借助该资源来体验stable-diffusion项目
 
-来看下最终效果
+话不多耍，先来看下最终效果
 
 ![使用 Stable Diffusion 生成的照片](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/WjDPGO.jpg)
 
