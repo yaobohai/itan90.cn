@@ -104,7 +104,7 @@ https://colab.research.google.com/drive/1FFGO7zyrZwp0yePWdK1cH_s-75wx6JOF?usp=sh
 // 注意事项：选一个模型之后，会自动在第一个输入框填充前缀，不要删除
 // 参数大孩子可以解释为：需要一个很可爱戴眼镜的JK妹子 
 
-<lora:japaneseDollLikeness_v10:1>(8k, best quality, masterpiece:1.2), (realistic, photo-realistic:1.37), ultra-detailed,1 girl in JK uniform,cute,wear glasses,solo,stand,dating,(nose blush),(smile:1.15),(grin) big breasts,Long legged
+(8k, best quality, masterpiece:1.2), (realistic, photo-realistic:1.37), ultra-detailed,1 girl in JK uniform,cute,wear glasses,solo,stand,dating,(nose blush),(smile:1.15),(grin) big breasts,Long legged
 ```
 
 第二个框的参数：
