@@ -5,9 +5,9 @@ date: 2023/02/26 22:50:00
 categories: AI技术
 ---
 
-得益于Google的colab可以为我们免费提供13GiB的内存以及15GiB GPU、80GiB硬盘的运算算力，因此，可以借助该资源来体验stable-diffusion项目
+得益于Google的colab可以为我们免费提供13GiB的内存以及15GiB GPU、80GiB硬盘的运算算力，因此，可以借助该资源来体验stable-diffusion项目。
 
-话不多耍，先来看下最终效果
+话不多耍，先来看下最终效果: 
 
 ![使用 Stable Diffusion 生成的照片](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/WjDPGO.jpg)
 
@@ -127,7 +127,7 @@ paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), low
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/d5r9mQ.png)
 
-需要注意的是，如果需要同时生成多张图片，修改下 `Batch size` 的值即可，但需要注意的是，不要生成太多，免费的运算资源GPU不够用，生成图片要消耗的时间就更长。
+需要注意的是，如果需要同时生成多张图片，修改下 `Batch size` 的值即可，但还要注意的是，不要生成太多，colab免费的运算资源GPU对于批量生成显然余力不足，生成更多的图片就要消耗更长时间甚至hang住失败。
 
 ## 最后
 
