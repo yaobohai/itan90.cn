@@ -5,7 +5,9 @@ date: 2023/02/26 22:50:00
 categories: AI技术
 ---
 
-使用colab运算资源来体验AI生成照片，现看下最终效果
+Google的colab运算算力可以免费提供13GiB的内存以及15G GPU、80G硬盘，因此，我们可以借助改资源来体验stable-diffusion项目
+
+来看下最终效果
 
 ![使用 Stable Diffusion 生成的照片](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/WjDPGO.jpg)
 
@@ -89,8 +91,6 @@ https://colab.research.google.com/drive/1FFGO7zyrZwp0yePWdK1cH_s-75wx6JOF?usp=sh
 点橙色按钮 `Generate` 下面的第三个按钮，接着来到Lora层级，选择三个任意一个模型。
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/71CRHo.jpg)
-
-![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/NVGsNZ.jpg)
 
 ### 配置参数
 
