@@ -19,7 +19,7 @@ categories: AI技术
 - 模型&关键词 https://civitai.com/
 
 
-## 1.下载 LORA 模型到本地
+## 下载 LORA 模型到本地
 
 ```
 打开链接下载模型，也可以打开 civitai.com 下载其他模型
@@ -31,7 +31,7 @@ https://civitai.com/models/10135/japanese-doll-likeness
 
 ![点箭头位置](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/PKHuAX.jpg)
 
-## 2.将模型上传到 Google 云端硬盘
+## 将模型上传到 Google 云端硬盘
 
 ```
 1、在浏览器打开链接：https://drive.google.com/
@@ -43,7 +43,7 @@ https://civitai.com/models/10135/japanese-doll-likeness
 
 ![将下载的模型上传](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/igfEIX.jpg)
 
-## 3.在 Colab 运行
+## 在 Colab 运行
 
 ```
 在浏览器打开链接：
@@ -51,7 +51,7 @@ https://civitai.com/models/10135/japanese-doll-likeness
 https://colab.research.google.com/drive/1FFGO7zyrZwp0yePWdK1cH_s-75wx6JOF?usp=share_link
 ```
 
-### 3.1 初始化
+### 初始化
 
 打开后，点击 “连接” 或 “连接到托管的运行时”
 
@@ -65,32 +65,34 @@ https://colab.research.google.com/drive/1FFGO7zyrZwp0yePWdK1cH_s-75wx6JOF?usp=sh
 
 ![停止运行](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/e1xldA.png)
 
-### 3.2 挂载云盘
+### 挂载云盘
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/gZChT3.png)
 
-### 3.3 复制模型
+### 复制模型
 
 挂载云盘完成后，就可以把 当时上传到 “model” 目录下的模型文件复制到工作目录了，如果在第 2 步骤中，新建的目录名不叫 model ，那自行修改下即可
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/abOunF.png)
 
-### 3.4 运行stable-diffusion
+### 运行stable-diffusion
 
 点击运行运行旁边的启动按钮，则可在colab运算资源中运行stable-diffusion运算项目，当出现 `Running on public URL` 则说明项目启动完毕，接着点击该链接，会跳转到一个新的页面：“stable-diffusion-webui” 此时colab的页面我们不用去管他 (也不要关闭)。
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/urkl4u.png)
 
 
-## 4. 制作图形
+## 制作图形
 
-### 4.1 导入模型
+### 导入模型
 
 点橙色按钮 `Generate` 下面的第三个按钮，接着来到Lora层级，选择三个任意一个模型。
 
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/71CRHo.jpg)
+
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/NVGsNZ.jpg)
 
-### 4.2 配置参数
+### 配置参数
 
 在 4.1 选择好模型后，会自动在上方第一个大框中填上模型的前缀，然后我们在后面加上一些我们想要的参数
 
@@ -115,7 +117,7 @@ paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), low
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-02-26/bIg478.jpg)
 
-### 4.3 生成图片
+### 生成图片
 
 参数调整好之后，点击上方橙色图标 `Generate` 即可根据导入的模型以及参数来生成人像图片：
 
