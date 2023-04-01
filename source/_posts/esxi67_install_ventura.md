@@ -6,6 +6,7 @@ categories: 关于MAC 虚拟化
 ---
 
 在ESXI安装MacOS步骤略微繁琐，再次记录下安装步骤。
+<!--more-->
 
 ## 镜像准备
 
