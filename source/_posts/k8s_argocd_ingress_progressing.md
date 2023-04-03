@@ -4,7 +4,7 @@ title: 解决ArgoCD Ingress资源一直处于Progressing状态
 date: 2022/12/05 22:50:00
 updated: 2022/12/05 22:50:00
 categories:
-  - 运维笔记
+  - K8S运维笔记
 ---
   
 ![](https://resource.static.tencent.itan90.cn/202212/167025207810926729.png)

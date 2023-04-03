@@ -1,7 +1,7 @@
 ---
 title: 使用Kubernetes Metrics收集Kubernetes指标
 date: 2022-08-09 11:12:16
-categories: 运维笔记
+categories: K8S运维笔记
 ---
 
 如果您曾经在 Linux 系统上工作过，那么您很可能使用过top命令。如果您知道该命令，您将很快习惯 Kubernetes 中的命令是如何工作的。如果你不这样做，不要害怕！虽然kubectl top 是一个强大的命令，但使用起来非常简单。<!--more-->
