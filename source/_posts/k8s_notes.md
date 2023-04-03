@@ -25,7 +25,15 @@ wget https://init.ac/files/kubectl-node_shell -P /usr/local/bin/ && chmod +x /us
 
 ```shell
 kubectl cp <命名空间>/<pod-name>:<容器文件路径> <主机路径>
+
+或使用文件交换脚本
+
+# 使用IPV4请求
+curl -4s https://transfer.init.ac/scripts/file.sh|bash -s 本地文件名或本地文件路径
+# 使用IPV6请求
+curl -6s https://transfer.init.ac/scripts/file.sh|bash -s 本地文件名或本地文件路径
 ```
+
 
 ## 登录k8s节点
 
