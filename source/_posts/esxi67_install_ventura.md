@@ -2,7 +2,7 @@
 layout: post
 title: ESXI 6.7.0安装MacOS Ventura
 date: 2023/04/1 16:00:00
-categories: 关于MAC 虚拟化
+categories: 关于MAC
 ---
 
 在ESXI安装MacOS步骤略微繁琐，再次记录下安装步骤。
