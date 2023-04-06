@@ -131,6 +131,120 @@ docker restart remote_download
 备用地址：curl -s https://oss-1251604004.cos.ap-shanghai.myqcloud.com/files/remote_download/init.sh|bash
 ```
 
+### 在K8S中运行
+
+1、新建 `deploy_remote_download.yaml` 编排文件
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: remote-download
+  labels:
+    app: remote-download
+spec:
+  selector:
+    app: remote-download
+  type: NodePort
+  ports:
+    # 使用nodeport主机30006端口发布服务
+    - name: http
+      port: 80
+      nodePort: 30006
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: remote-download
+  labels:
+    app: remote-download
+spec:
+  selector:
+    matchLabels:
+      app: remote-download
+  template:
+    metadata:
+      labels:
+        app: remote-download
+    spec:
+      nodeSelector:
+        # k8s任意一节点名称
+        kubernetes.io/hostname: k8s-ingress-node
+      containers:
+      - image: registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.0
+        imagePullPolicy: Always
+        name: remote-download
+        env:
+        # 程序的访问密码
+        - name: PASSWORD
+          value: "123456"
+        # 程序的访问地址
+        - name: SERVER_NAME
+          value: "146.56.108.154:30006"
+        ports:
+        - containerPort: 80
+          name: http
+        livenessProbe:
+          httpGet:
+            path: /api/files
+            port: 80
+            scheme: HTTP
+          failureThreshold: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        startupProbe:
+          httpGet:
+            path: /api/files
+            port: 80
+            scheme: HTTP
+          failureThreshold: 60
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /api/files
+            port: 80
+            scheme: HTTP
+          failureThreshold: 2
+          periodSeconds: 6
+          successThreshold: 3
+          timeoutSeconds: 1
+        volumeMounts:
+        - mountPath: "/app/remote_download/files"
+          name: remote-download-data
+        resources:
+          # 启动所需资源
+          requests:
+            cpu: 50m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 200Mi
+      securityContext:
+        runAsUser: 0
+      volumes:
+      # 存储使用主机存储
+      - name: remote-download-data
+        hostPath:
+          path: /data/remote-download/
+```
+
+2、启动
+
+```shell
+kubectl create ns remote-deploy
+kubectl apply -f deploy_remote_download.yaml -n remote-deploy
+```
+
+3、访问
+
+```shell
+http://K8S节点IP:30006  密码: 123456
+```
+
 ### 公开节点
 
 如果你暂时没有线路好的国外节点，可以暂时使用我的节点进行使用。
