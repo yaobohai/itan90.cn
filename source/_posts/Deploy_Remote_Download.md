@@ -34,9 +34,9 @@ thumbStyle: default
 
 <!--more-->
 
-## 部署
+# 部署
 
-### 基础环境
+## 基础环境
 
 ```bash
 // 安装Docker
@@ -45,7 +45,7 @@ yum -y install docker \
 && systemctl enable docker
 ```
 
-### 安装程序
+## 安装程序
 
 ```bash
 docker rm -f remote_download
@@ -63,7 +63,7 @@ registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
 
-### 访问使用
+## 访问使用
 
 1、打开浏览器访问本机IP地址 `SERVER_ADDR的值` 加 端口 `SERVER_PORT的值` 。打开后界面如下：
 
@@ -75,7 +75,7 @@ docker logs -f --tail=200 remote_download
 
 ![][3]
 
-### 运行参数解释
+## 运行参数解释
 
 ```bash
 // 是否启用https
@@ -88,7 +88,7 @@ export SERVER_ADDR=$(curl -4s ip.sb)
 
 上述参数片段表示使用https的18889端口进行访问和进行下载文件。
 
-### 一键安装
+## 一键安装
 
 支持：RedHat 7.X 系列
 
@@ -96,15 +96,15 @@ export SERVER_ADDR=$(curl -4s ip.sb)
 首选地址：curl -s https://oss.itan90.cn/files/remote_download/init.sh|bash
 ```
 
-## 高阶用法
+# 高阶用法
 
-### 使用tips
+## 使用tips
 
 1、当 `USE_HTTPS='true'`且证书有效时,可双击文件链接拦自动完成文件链接填入。
 
-### 在k8s中运行
+## 在k8s中运行
 
-#### 新建编排文件
+### 新建编排文件
 
 ```shell
 $ kubectl create ns bohai-app
@@ -212,7 +212,7 @@ spec:
           path: /data/remote-download/
 ```
 
-#### 启动
+### 启动
 
 ```shell
 $ kubectl apply -f deploy.yaml -n bohai-app
@@ -223,10 +223,27 @@ NAME                               READY   STATUS    RESTARTS   AGE
 remote-download-7c8d5b4dbf-c5fc9   1/1     Running   0          2m6s
 ```
 
-#### 访问
+### 访问
 
 ```shell
 http://K8S节点IP:30006  密码: admin123
+```
+
+### 监控
+
+```shell
+// 资源使用
+$ kubectl top po -n bohai-app -l app=remote-download
+NAME                               CPU(cores)   MEMORY(bytes)
+remote-download-7c8d5b4dbf-c5fc9   1m           27Mi
+
+// 服务状态
+协议：HTTP 
+方法：GET 
+地址：127.0.0.1:80 
+路径：/api/files
+
+返回状态码：200
 ```
 ## 其他帮助
 
