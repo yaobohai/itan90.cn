@@ -43,14 +43,16 @@ yum -y install docker \
 ```bash
 docker rm -f remote_download
 export SERVER_PORT='80'
+export USE_HTTPS='false'
 docker run -itd \
 -p $SERVER_PORT:80 \
 --restart=always \
 --name=remote_download \
 -e PASSWORD=123456 \
+-e USE_HTTPS=$USE_HTTPS \
 -e SERVER_NAME=$(curl -4s ip.sb):$SERVER_PORT \
 -v /data:/app/remote_download/files \
-registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.0
+registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
 
@@ -68,62 +70,30 @@ docker logs -f --tail=200 remote_download
 
 ### 运行参数解释
 
-```bash
-# 默认访问端口
-SERVER_PORT='80'
-# 重启Docker时随Docker一起重启
---restart=always
-# 默认登陆密码
--e PASSWORD=123456 
-# 服务前端地址（默认获取本机公网IPV4地址。需要域名时填写域名；内网IP请填写内网IP）
--e SERVER_NAME=$(curl -4s ip.sb)
-# 默认数据存储目录
--v /data:/app/remote_download/files
-```
-
 若需使用非80端口部署程序 只需修改`SERVER_PORT`的值即可；需要如下配置即可（例如端口18889）
+
+若需使用https协议进行下载文件，则为变量`USE_HTTPS` 配置为 `true` 
 
 ```bash
 docker rm -f remote_download
 export SERVER_PORT='18889'
+export USE_HTTPS='false'
 docker run -itd \
 -p $SERVER_PORT:80 \
 --restart=always \
 --name=remote_download \
 -e PASSWORD=123456 \
+-e USE_HTTPS=$USE_HTTPS \
 -e SERVER_NAME=$(curl -4s ip.sb):$SERVER_PORT \
 -v /data:/app/remote_download/files \
-registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.0
+registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
 
-### 开启SSL
+上述代码片段表示使用https的18889端口进行访问和进行下载文件。
 
-假设你已部署好程序；且通过NGINX反向代理了程序。那么命令行运行以下两条命了即可
 
-```bash
-docker exec -it remote_download sed -i "s/USE_HTTPS=false/USE_HTTPS=true/g" /app/remote_download/.env
-
-docker restart remote_download
-```
-
-### 修改前端
-
-为了部署时间，打包镜像时未考虑在部署时自动编译前端，那么有需要修改前端的需求则可将原有html文件复制出来单独修改，并将文件映射至容器目录。
-
-```bash
-# 1. 复制前端文件
-docker cp remote_download:/app/www/index.html ./
-
-# 2. 启动程序时添加参数
--v ./index.html:/app/www/index.html \
-
-# 3. 重启程序
-docker restart remote_download
-
-```
-
-### 一键安装脚本
+## 一键安装脚本
 
 ```bash
 首选地址：curl -s https://oss.itan90.cn/files/remote_download/init.sh|bash
@@ -131,7 +101,7 @@ docker restart remote_download
 备用地址：curl -s https://oss-1251604004.cos.ap-shanghai.myqcloud.com/files/remote_download/init.sh|bash
 ```
 
-### 在K8S中运行
+## 在K8S中运行
 
 1、新建 `deploy_remote_download.yaml` 编排文件
 
@@ -172,13 +142,16 @@ spec:
         # k8s任意一节点名称
         kubernetes.io/hostname: k8s-ingress-node
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.0
+      - image: registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
         imagePullPolicy: Always
         name: remote-download
         env:
+        # 是否启用https访问
+        - name: USE_HTTPS
+          value: "false"
         # 程序的访问密码
         - name: PASSWORD
-          value: "123456"
+          value: "admin123"
         # 程序的访问地址
         - name: SERVER_NAME
           value: "146.56.108.154:30006"
@@ -218,11 +191,11 @@ spec:
         resources:
           # 启动所需资源
           requests:
-            cpu: 50m
-            memory: 100Mi
+            cpu: 10m
+            memory: 30Mi
           limits:
-            cpu: 100m
-            memory: 200Mi
+            cpu: 20m
+            memory: 50Mi
       securityContext:
         runAsUser: 0
       volumes:
@@ -235,8 +208,8 @@ spec:
 2、启动
 
 ```shell
-kubectl create ns remote-deploy
-kubectl apply -f deploy_remote_download.yaml -n remote-deploy
+kubectl create ns bohai-app
+kubectl apply -f deploy_remote_download.yaml -n bohai-app
 ```
 
 3、访问
@@ -244,19 +217,3 @@ kubectl apply -f deploy_remote_download.yaml -n remote-deploy
 ```shell
 http://K8S节点IP:30006  密码: 123456
 ```
-
-### 公开节点
-
-如果你暂时没有线路好的国外节点，可以暂时使用我的节点进行使用。
-
-*开发或演示环境节点、不保证稳定性、文件定时清理*
-
-| 节点访问地址 | 节点物理位置 | 备注  |
-| -------- | -------------- |--------|
-| http://204.13.155.78:8999/ 	| 美国 洛杉矶 | |
-| http://107.172.157.169:8999/	| 美国 水牛城 | |
-| http://107.173.85.142:8999/	| 美国 水牛城 | |
-
-
-  [2]: https://oss.itan90.cn/out_pic/2022-07-20/2QgZgi.jpg
-  [3]: https://oss.itan90.cn/out_pic/2022-07-20/L8LlOW.jpg
