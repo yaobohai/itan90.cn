@@ -36,7 +36,7 @@ thumbStyle: default
 
 ## 部署
 
-#### 基础环境
+### 基础环境
 
 ```bash
 // 安装Docker
@@ -45,7 +45,7 @@ yum -y install docker \
 && systemctl enable docker
 ```
 
-#### 安装程序
+### 安装程序
 
 ```bash
 docker rm -f remote_download
@@ -63,7 +63,7 @@ registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
 
-#### 访问使用
+### 访问使用
 
 1、打开浏览器访问本机IP地址 `SERVER_ADDR的值` 加 端口 `SERVER_PORT的值` 。打开后界面如下：
 
@@ -75,7 +75,7 @@ docker logs -f --tail=200 remote_download
 
 ![][3]
 
-#### 运行参数解释
+### 运行参数解释
 
 ```bash
 // 是否启用https
