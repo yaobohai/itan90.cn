@@ -50,62 +50,56 @@ docker run -itd \
 --name=remote_download \
 -e PASSWORD=123456 \
 -e USE_HTTPS=$USE_HTTPS \
--e SERVER_NAME=$(curl -4s ip.sb):$SERVER_PORT \
+-e SERVER_NAME=SERVER_ADDR:$SERVER_PORT \
 -v /data:/app/remote_download/files \
 registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
 
-## 使用
+## 访问使用
 
-打开浏览器访问本机公网IPV4地址。默认通过 `curl -4s ip.sb` 获取。打开后界面如下：
+1、打开浏览器访问本机IP地址 `SERVER_ADDR的值` 加 端口 `SERVER_PORT的值` 。打开后界面如下：
 
 ![][2]
 
-在上框中输入登陆密码 `默认登陆密码 123456` 第一个框中输入粘贴文件链接进去即可
+在上框中输入登陆密码 `PASSWORD的值` 并回车
+
+2、将文件地址复制到上面的框中,即可完成文件缓存操作
 
 ![][3]
 
-## 帮助
-
 ### 运行参数解释
 
-若需使用非80端口部署程序 只需修改`SERVER_PORT`的值即可；需要如下配置即可（例如端口18889）
-
-若需使用https协议进行下载文件，则为变量`USE_HTTPS` 配置为 `true` 
-
 ```bash
-docker rm -f remote_download
-export SERVER_PORT='18889'
+// 是否启用https
 export USE_HTTPS='true'
-docker run -itd \
--p $SERVER_PORT:80 \
---restart=always \
---name=remote_download \
--e PASSWORD=123456 \
--e USE_HTTPS=$USE_HTTPS \
--e SERVER_NAME=$(curl -4s ip.sb):$SERVER_PORT \
--v /data:/app/remote_download/files \
-registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
-docker logs -f --tail=200 remote_download
+// 服务访问端口
+export SERVER_PORT='18889'
+// 服务访问地址 (VPS的公网IP)
+export SERVER_ADDR=$(curl -4s ip.sb)
 ```
 
-上述代码片段表示使用https的18889端口进行访问和进行下载文件。
+上述参数片段表示使用https的18889端口进行访问和进行下载文件。
 
-
-## 一键安装脚本
+## 一键安装
 
 ```bash
 首选地址：curl -s https://oss.itan90.cn/files/remote_download/init.sh|bash
-
-备用地址：curl -s https://oss-1251604004.cos.ap-shanghai.myqcloud.com/files/remote_download/init.sh|bash
 ```
 
-## 在K8S中运行
+## 高阶用法
 
-1、新建 `deploy_remote_download.yaml` 编排文件
+### 使用tips
+
+1、当 `USE_HTTPS='true'`且证书有效时,可双击文件链接拦自动完成文件链接填入。
+
+### 在k8s中运行
+
+#### 新建编排文件
 
 ```yaml
+$ cat deploy_remote_download.yaml
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -205,15 +199,18 @@ spec:
           path: /data/remote-download/
 ```
 
-2、启动
+#### 启动
 
 ```shell
 kubectl create ns bohai-app
 kubectl apply -f deploy_remote_download.yaml -n bohai-app
 ```
 
-3、访问
+#### 访问
 
 ```shell
-http://K8S节点IP:30006  密码: 123456
+http://K8S节点IP:30006  密码: admin123
 ```
+
+  [2]: https://resource.static.tencent.itan90.cn/mac_pic/2023-04-08/WaNWXe.png
+  [3]: https://resource.static.tencent.itan90.cn/mac_pic/2023-04-08/EJhrHd.png
