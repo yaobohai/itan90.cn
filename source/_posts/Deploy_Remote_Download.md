@@ -229,6 +229,9 @@ remote-download-7c8d5b4dbf-c5fc9   1m           27Mi
 路径：/api/files
 
 返回状态码：200
+
+// 服务日志
+$ kubectl logs -f --tail=200 -n bohai-app -l app=remote-download
 ```
 # 其他帮助
 
