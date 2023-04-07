@@ -33,16 +33,17 @@ yum -y install docker \
 ## 安装程序
 
 ```bash
-docker rm -f remote_download
-export SERVER_PORT='80'
 export USE_HTTPS='false'
+export SERVER_PORT='80'
+export SERVER_ADDR=$(curl -4s ip.sb)
+docker rm -f remote_download
 docker run -itd \
 -p $SERVER_PORT:80 \
 --restart=always \
 --name=remote_download \
 -e PASSWORD=123456 \
 -e USE_HTTPS=$USE_HTTPS \
--e SERVER_NAME=SERVER_ADDR:$SERVER_PORT \
+-e SERVER_NAME=$SERVER_ADDR:$SERVER_PORT \
 -v /data:/app/remote_download/files \
 registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
