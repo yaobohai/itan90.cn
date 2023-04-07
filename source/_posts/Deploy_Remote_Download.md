@@ -88,7 +88,9 @@ export SERVER_ADDR=$(curl -4s ip.sb)
 
 上述参数片段表示使用https的18889端口进行访问和进行下载文件。
 
-## 一键安装
+### 一键安装
+
+支持：RedHat 7.X 系列
 
 ```bash
 首选地址：curl -s https://oss.itan90.cn/files/remote_download/init.sh|bash
