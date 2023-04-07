@@ -77,7 +77,7 @@ docker logs -f --tail=200 remote_download
 ```bash
 docker rm -f remote_download
 export SERVER_PORT='18889'
-export USE_HTTPS='false'
+export USE_HTTPS='true'
 docker run -itd \
 -p $SERVER_PORT:80 \
 --restart=always \
