@@ -85,7 +85,7 @@ export SERVER_ADDR=$(curl -4s ip.sb)
 
 ## 使用tips
 
-1、当 `USE_HTTPS='true'`且证书有效时,可双击文件链接拦自动完成文件链接填入。
+1、当 `USE_HTTPS` 为 `true` 且证书有效时,可双击文件链接拦自动完成文件链接填入。
 
 ## 在k8s中运行
 
