@@ -2,24 +2,9 @@
 layout: post
 cid: 67
 title: 远程下载工具的部署与使用
-slug: 67
 date: 2021/12/19 15:35:00
-updated: 2022/04/17 13:39:37
-status: publish
-author: sunday
 categories:
   - 实验室
-tags: 
-customSummary: 
-mathjax: auto
-noThumbInfoStyle: default
-outdatedNotice: no
-reprint: standard
-thumb: 
-thumbChoice: default
-thumbDesc: 
-thumbSmall: 
-thumbStyle: default
 ---
   
 部署在服务器上的下载工具，利用海外高带宽的优势做跳板加速本地下载，主要用于加速国内下载缓慢的国外资源。
