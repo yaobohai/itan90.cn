@@ -40,7 +40,6 @@ thumbStyle: default
 
 ```bash
 // 安装Docker
-
 yum -y install docker \
 && systemctl start docker \
 && systemctl enable docker
@@ -227,6 +226,14 @@ remote-download-7c8d5b4dbf-c5fc9   1/1     Running   0          2m6s
 ```shell
 http://K8S节点IP:30006  密码: admin123
 ```
+
+## 其他帮助
+
+### 公开节点
+
+| 节点名称 | 节点地址 | 节点物理位置 | 备注       |
+|------|------|--------|----------|
+| 预演环境 |http://146.56.108.154:30006/ |  韩国 春川 | k8s环境中运行  |
 
   [2]: https://resource.static.tencent.itan90.cn/mac_pic/2023-04-08/WaNWXe.png
   [3]: https://resource.static.tencent.itan90.cn/mac_pic/2023-04-08/EJhrHd.png
