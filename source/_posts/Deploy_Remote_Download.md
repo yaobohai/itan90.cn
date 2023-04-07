@@ -24,21 +24,29 @@ thumbStyle: default
   
 部署在服务器上的下载工具，利用海外高带宽的优势做跳板加速本地下载，主要用于加速国内下载缓慢的国外资源。
 
+其优势如下：
+
+- 使用容器部署
+- 资源占用较少
+- 部署效率飞快
+
 ![](https://oss.itan90.cn/out_pic/2022-07-11/tTEM6V.png)
 
 <!--more-->
 
 ## 部署
 
-### 安装Docker
+#### 基础环境
 
 ```bash
+// 安装Docker
+
 yum -y install docker \
 && systemctl start docker \
 && systemctl enable docker
 ```
 
-### 安装远程下载工具程序
+#### 安装程序
 
 ```bash
 docker rm -f remote_download
@@ -56,7 +64,7 @@ registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
 
-## 访问使用
+#### 访问使用
 
 1、打开浏览器访问本机IP地址 `SERVER_ADDR的值` 加 端口 `SERVER_PORT的值` 。打开后界面如下：
 
@@ -68,7 +76,7 @@ docker logs -f --tail=200 remote_download
 
 ![][3]
 
-### 运行参数解释
+#### 运行参数解释
 
 ```bash
 // 是否启用https
@@ -97,9 +105,13 @@ export SERVER_ADDR=$(curl -4s ip.sb)
 
 #### 新建编排文件
 
-```yaml
-$ cat deploy_remote_download.yaml
+```shell
+$ kubectl create ns bohai-app
+$ mkdir remote-download && cd $_
+$ vim deploy.yaml
+```
 
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -202,8 +214,12 @@ spec:
 #### 启动
 
 ```shell
-kubectl create ns bohai-app
-kubectl apply -f deploy_remote_download.yaml -n bohai-app
+$ kubectl apply -f deploy.yaml -n bohai-app
+
+// 当Pod状态为Running时即可
+$ kubectl get po -n bohai-app -l app=remote-download
+NAME                               READY   STATUS    RESTARTS   AGE
+remote-download-7c8d5b4dbf-c5fc9   1/1     Running   0          2m6s
 ```
 
 #### 访问
