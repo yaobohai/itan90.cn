@@ -228,7 +228,6 @@ remote-download-7c8d5b4dbf-c5fc9   1/1     Running   0          2m6s
 ```shell
 http://K8S节点IP:30006  密码: admin123
 ```
-
 ## 其他帮助
 
 ### 公开节点
