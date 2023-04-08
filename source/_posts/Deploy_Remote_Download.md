@@ -111,10 +111,10 @@ spec:
   type: NodePort
   ports:
     # 使用nodeport主机30006端口发布服务
-    - name: http
+    - name: web
       port: 80
+      targetPort: 80
       nodePort: 30006
-      targetPort: http
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -133,7 +133,7 @@ spec:
     spec:
       nodeSelector:
         # k8s任意一节点名称
-        kubernetes.io/hostname: k8s-ingress-node
+        kubernetes.io/hostname: kube-node01
       containers:
       - image: registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
         imagePullPolicy: Always
