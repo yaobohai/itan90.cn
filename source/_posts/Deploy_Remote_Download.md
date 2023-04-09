@@ -134,6 +134,14 @@ spec:
       nodeSelector:
         # k8s任意一节点名称
         kubernetes.io/hostname: kube-node01
+      # 生成一个50M大小的文件进行下载测试(可选)
+      initContainers:
+      - name: generate-files
+        image: busybox:1.28
+        command: ['sh', '-c', 'dd if=/dev/zero of=/app/remote_download/files/demo.file bs=1M count=50 &>/dev/null']
+        volumeMounts:
+        - name: remote-download-data
+          mountPath: /app/remote_download/files
       containers:
       - image: registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
         imagePullPolicy: Always
