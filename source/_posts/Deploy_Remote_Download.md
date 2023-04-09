@@ -192,11 +192,11 @@ spec:
         resources:
           # 启动所需资源
           requests:
-            cpu: 10m
-            memory: 30Mi
+            cpu: 1m
+            memory: 10Mi
           limits:
-            cpu: 20m
-            memory: 50Mi
+            cpu: 10m
+            memory: 40Mi
       securityContext:
         runAsUser: 0
       volumes:
