@@ -44,7 +44,7 @@ docker run -itd \
 -e PASSWORD=123456 \
 -e USE_HTTPS=$USE_HTTPS \
 -e SERVER_NAME=$SERVER_ADDR:$SERVER_PORT \
--v /data:/app/remote_download/files \
+-v /data/remote_download/data:/app/remote_download/files \
 registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.2
 docker logs -f --tail=200 remote_download
 ```
@@ -87,6 +87,53 @@ export SERVER_ADDR=$(curl -4s ip.sb)
 ## 使用tips
 
 1、当 `USE_HTTPS` 为 `true` 且证书有效时,可双击文件链接拦自动完成文件链接填入。
+
+2、远端存储
+
+从 `v1.3` 版本开始，程序支持使用远端存储来启动程序
+
+也就是在启动时指定一个远端存储，从而为程序提供一个数据落地的方法。
+
+例如以下启动参数:
+
+```shell
+docker rm -f remote_download
+docker run -itd \
+-p 8999:80 \
+--restart=always \
+--name=remote_download \
+# 开启特权模式[必须添加]
+--privileged \
+-e PASSWORD=123456 \
+-e USE_HTTPS=false \
+-e SERVER_NAME=2.2.2.2:8999 \
+-e REMOTE_STORAGE=minio \
+-e MINIO_ACCESS_KEY_ID=<you_minio_access_keyid> \
+-e MINIO_SECRET_ACCESS_KEY=<you_minio_accesskey> \
+-e MINIO_SERVER_URL=<you_minio_url> \
+-e MINIO_BUCKET_NAME=<you_minio_bucket_name> \
+registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.3
+```
+
+启动后，则会使用minio作为数据存储的方式，数据的存储则会最终落入minio存储中不占用运行容器的主机空间 
+
+注意：上传/下载文件时，则会使用主机存储作为临时缓存
+
+具体参数解释
+
+```shell
+远端存储类型          REMOTE_STORAGE
+minio的ACCESSiD     MINIO_ACCESS_KEY_ID
+minio的ACCESSKEY    MINIO_SECRET_ACCESS_KEY 
+minio的服务地址      MINIO_SERVER_URL
+minio的Bucket名称   MINIO_BUCKET_NAME
+```
+
+目前已支持的存储类型：
+
+- minio
+
+待更新更多存储类型
 
 ## 在k8s中运行
 
