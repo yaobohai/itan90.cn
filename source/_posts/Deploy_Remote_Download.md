@@ -117,7 +117,7 @@ registry.cn-hangzhou.aliyuncs.com/bohai_repo/remote_download:v1.3
 
 启动后，则会使用minio作为数据存储的方式，数据的存储则会最终落入minio存储中不占用运行容器的主机空间 
 
-注意：上传/下载文件时，则会使用主机存储作为临时缓存
+注意：上传/下载文件时，则会使用主机存储作为临时缓存,完成后释放空间
 
 具体参数解释
 
