@@ -132,6 +132,7 @@ minio的Bucket名称   MINIO_BUCKET_NAME
 目前已支持的存储类型：
 
 - minio
+- 使用s3协议的对象存储
 
 待更新更多存储类型
 
