@@ -9,10 +9,8 @@ categories: Java
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-04-20/8OqUrP.jpg)
 
-
-# 定义Pom
-
 <!--more-->
+# 定义Pom
 
 在pom的description节点中引入properties定义推送的镜像仓库
 
