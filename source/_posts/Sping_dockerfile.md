@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java学习笔记(一): Sping自动构建docker镜像
+title: Java学习笔记: Sping自动构建docker镜像
 date: 2023/04/14 22:50:00
 categories: Java
 ---
