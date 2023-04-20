@@ -1,11 +1,18 @@
 ---
 layout: post
-title: Sping使用dockerfile-maven-plugin自动构建镜像
+title: Java学习笔记(一): Sping自动构建docker镜像
 date: 2023/04/14 22:50:00
 categories: Java
 ---
 
+在构建时一同构建docker镜像及推送
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-04-20/8OqUrP.jpg)
+
+
 # 定义Pom
+
+<!--more-->
 
 在pom的description节点中引入properties定义推送的镜像仓库
 
@@ -49,8 +56,8 @@ build节点中引入插件：dockerfile-maven-plugin
 ```dockerfile
 FROM openjdk:8u191-jre-alpine3.9
 ENTRYPOINT ["/usr/bin/java", "-jar", "/app.jar"]
-# 在pom中定义的
-ARG JAR_FILE 标签
+# 在pom中定义的 标签
+ARG JAR_FILE
 ADD ${JAR_FILE} /app.jar
 EXPOSE 8080
 ```
