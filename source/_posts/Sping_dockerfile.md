@@ -5,9 +5,9 @@ date: 2023/04/14 22:50:00
 categories: Java
 ---
 
-在构建时一同构建docker镜像及推送
-
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-04-20/8OqUrP.jpg)
+
+在构建时一同构建docker镜像及推送
 
 <!--more-->
 # 定义Pom
