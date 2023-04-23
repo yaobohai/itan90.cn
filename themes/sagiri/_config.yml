@@ -212,9 +212,9 @@ post_meta:
 post_wordcount:
   item_text: true
   wordcount: true
-  min2read: false
-  totalcount: false
-  separated_meta: false
+  min2read: true
+  totalcount: true
+  separated_meta: true
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -258,7 +258,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 
 # ---------------------------------------------------------------
