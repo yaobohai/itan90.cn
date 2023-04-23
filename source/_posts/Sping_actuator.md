@@ -70,7 +70,7 @@ management.endpoint.health.enabled            启用健康检查接口
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-04-23/xvZKuB.png)
 
-可以看到 返回了很多的端点 uri；这些都是可被健康检查的指标。 例如我们访问一个 `http://127.0.0.1:8443/actuator/health` 路径，可以进行健康检查:
+可以看到 返回了很多的端点 uri；这些都是可被健康检查的指标。 例如我们访问一个 `actuator/health` 路径，可以进行健康检查:
 
 ```shell
 $ curl http://127.0.0.1:8443/actuator/health
