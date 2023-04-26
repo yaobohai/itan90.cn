@@ -205,7 +205,7 @@ spec:
           value: "admin123"
         # 程序的访问地址
         - name: SERVER_NAME
-          value: "146.56.108.154:30006"
+          value: "64.112.124.72:30006"
         ports:
         - containerPort: 80
           name: http
@@ -296,9 +296,9 @@ $ kubectl logs -f --tail=200 -n bohai-app -l app=remote-download
 
 ## 公开节点
 
-| 节点名称 | 节点地址 | 节点物理位置        | 备注       |
-|------|------|---------------|----------|
-| 预演环境 |http://35.221.248.4:30006 | 台湾省Google数据中心 | k8s环境中运行  |
+| 节点名称 | 节点地址                        | 节点物理位置        | 备注       |
+|------|-----------------------------|---------------|----------|
+| 预演环境 | http://64.112.124.72:30006/ | 台湾省Google数据中心 | k8s环境中运行  |
 
   [2]: https://resource.static.tencent.itan90.cn/mac_pic/2023-04-08/WaNWXe.png
   [3]: https://resource.static.tencent.itan90.cn/mac_pic/2023-04-08/EJhrHd.png
