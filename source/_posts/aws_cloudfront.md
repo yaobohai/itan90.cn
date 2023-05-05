@@ -124,3 +124,17 @@ server {
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/VOH3Yb.png)
 
 等到域名解析生效即可访问 https://自定义域名 来愉快的玩耍啦～
+
+# 简单测试
+
+## YouTube
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/1Tperp.jpg)
+
+## 节点分配
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/so4Das.png)
+
+## 综合评价
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/TCL2zF.jpg)
