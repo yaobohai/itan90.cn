@@ -64,7 +64,7 @@ server {
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/FjLkER.png)
 
-之后其他配置先默认不管
+其他配置先默认不管
 
 ### 默认缓存行为
 
@@ -79,7 +79,7 @@ server {
 
 ### 设置
 
-来到设置处，在备用域名(CNAME)这里，我们现记一下，后面需要配置，此处先忽略
+来到设置处，在备用域名(CNAME)这里，我们先留意一下，后面需要配置，此处先忽略
 
 
 点击创建分配处，完成分配的创建
@@ -88,7 +88,7 @@ server {
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/YXcg7l.png)
 
-创建好之后，会分配给我们一个代理后的CDN地址: `d1f2etmdjsscrh.cloudfront.net`，试着访问该域名的https协议，看是不是已经反代到了我们的网站
+创建好之后，会分配给我们一个代理后的CDN地址: `d1f2etmdjsscrh.cloudfront.net`，试着访问该域名的https协议，看是不是已经反代到了我们的网站。如果打开后是我们自己的网站，说明配置成功～
 
 到这里结束了吗？并没有。我们虽然已经成功使用aws的cf完成代理服务，但对外发布的域名并不是我们自己的域名，下面步骤来增加一个我们自己的域名对外发布使用。当然如果你想，也可以使用cloudfront.net这个域名啦
 
