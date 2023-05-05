@@ -103,8 +103,9 @@ server {
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/75oP1s.png)
 
-
 等到后面验证通过即可，一般DNS验证时间比较久，需要耐心等待
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/1DJ3U7.png)
 
 ### 绑定域名
 
