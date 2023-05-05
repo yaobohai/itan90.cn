@@ -47,11 +47,49 @@ CloudFront是aws亚马逊云推出的全球CDN功能，并且拥有Cloudflare免
 
 进入CloudFront的 [控制台](https://us-east-1.console.aws.amazon.com/cloudfront/v3/home)
 
-首先是设置需要加速的域名，这里需要注意下，aws的cf产品设计于其他云厂商不太一样，他的源节点，也就是需要加速的真实的后端节点需要填写域名的方式,而其他云厂商则大部分是填写IP地址。
+### 源配置
 
-那么我们先解析一条A记录的域名，如：`tmt-seattle-node02.init.ac` 解析到具体后端节点IP，如 `1.1.1.1`，解析好之后，直接将需要加速的域名填进去，仅仅处理HTTPS，最低的SSL选择 `TLSv1.2`
+首先是来到源配置，在源配置中配置需要加速的域名，这里需要注意下，aws的cf产品设计于其他云厂商不太一样，他的源节点，也就是需要加速的真实的后端节点需要填写域名的方式,而其他云厂商则大部分是填写IP地址。
+
+那么我们先解析一条A记录的域名，如：`tmt-seattle-node02.init.ac` 解析到具体后端节点IP，如 `1.1.1.1`，并且在你的web程序中添加该域名，如nginx可参考下述配置，解析好之后，直接将需要加速的域名填进去，仅仅处理HTTPS，最低的SSL选择 `TLSv1.2`
+
+
+```shell
+# nginx中使用tmt-seattle-node02.init.ac域名
+server {
+    listen 443 ssl http2;
+    server_name tmt-seattle-node02.init.ac;
+    .....
+```
 
 ![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/FjLkER.png)
+
+之后其他配置先默认不管
+
+### 默认缓存行为
+
+来到默认缓存行为配置处，在查看器协议策略处，改为`HTTPS only` ; 缓存键和源请求改为 `Legacy cache settings` 其余配置则都为默认即可
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/ur4GcQ.png)
+
+
+### 函数关联
+
+不配置
+
+### 设置
+
+来到设置处，在备用域名(CNAME)这里，我们现记一下，后面需要配置，此处先忽略
+
+
+点击创建分配处，完成分配的创建
+
+## 测试访问
+
+![](https://resource.static.tencent.itan90.cn/mac_pic/2023-05-05/YXcg7l.png)
+
+创建好之后，会分配给我们一个代理后的CDN地址: `d1f2etmdjsscrh.cloudfront.net`，试着访问该域名的https协议，看是不是已经反代到了我们的网站
+
 
 
 
