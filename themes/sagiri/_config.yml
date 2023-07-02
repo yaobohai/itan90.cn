@@ -75,10 +75,8 @@ menu:
 submenu:
   实验室:
     下载: https://init.ac/
-    监控: https://monitor.itan90.cn/
     图床: https://resource.static.tencent.itan90.cn/
     脚本发布: https://mirrors.itan90.cn/
-    NAT PLANE: https://nat.itan90.cn/
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -121,8 +119,7 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  老博客: https://www.itan90.cn/ || http://q1.qlogo.cn/g?b=qq&nk=424079134&s=640 || 没有人知道的世界
-  友人C: https://www.ihewro.com/ || https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg || 大佬的博客.
+  友人C: https://www.ihewro.com/ || https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg || 相逢的人会再相逢
   晴栀初眸: https://shackles.cn/ || https://shackles.cn/usr/themes/handsome/assets/img/avatar.jpg || 大佬的博客.
   IChen.: https://blog.csdn.net/ichen820/ || http://q1.qlogo.cn/g?b=qq&nk=2690176419&s=640 || 大佬的博客.
   圈圈圆圆圈圈: https://www.hejingping.cn/ || http://q1.qlogo.cn/g?b=qq&nk=794215277&s=640 || 大佬的博客.
@@ -791,7 +788,7 @@ header_bg: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/ima
 card:
   avatar: https://cdn.jsdelivr.net/gh/DIYgod/diygod.me/themes/sagiri/source/images/DIYgod-avatar2.jpeg
   name: 没有人知道的世界
-  description: 写代码是热爱，写到世界充满爱！
+  description: 愿世界安康，愿你我皆好!
 
 footer:
   # Specify the date when the site was setup.
@@ -817,7 +814,7 @@ footer:
   # custom_text: 托管于<a href="https://github.com/" target="_blank" rel="nofollow"> GitHub</a>. <a href="https://www.upyun.com/" target="_blank" rel="nofollow">又拍云</a> 提供 CDN 服务. <a href="http://www.google.com/analytics/" target="_blank" rel="nofollow">Google Analytics </a>提供网站统计服务. <a href="https://www.cloudxns.net/" target="_blank" rel="nofollow">CloudXNS </a>提供 DNS 解析服务.
   sitemap: /sitemap.xml
 
-description: 不要忽视梦想。不要工作过久。说出想法。交朋友。要开心。
+description: 愿世界安康，愿你我皆好!
 
 # Theme version
 version: 1.0.13
