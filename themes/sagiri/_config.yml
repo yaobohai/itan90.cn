@@ -697,7 +697,7 @@ vendors:
   # Internal path prefix. Please do not edit it.
   _internal: lib
 
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.2.2/dist/disqus.js
+  disqusjs: https://oss.itan90.cn/resource/blog/disqus.js
 
   # Internal version: 2.1.3
   jquery: https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
@@ -729,9 +729,9 @@ vendors:
 
   # Internal version: 4.7.0
   # See: http://fontawesome.io/
-  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
+  fontawesome: https://oss.itan90.cn/resource/blog/all.min.css
 
-  social_share_css: https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css
+  social_share_css: https://oss.itan90.cn/resource/blog/share.min.css
 
   # Internal version: 1
   # https://www.algolia.com
