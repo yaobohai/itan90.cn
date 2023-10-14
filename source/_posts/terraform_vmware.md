@@ -36,9 +36,10 @@ brew install terraform
 
 ## 准备Terraform工作目录
 
-其中、terraform存储其他资源，vmware中存储我们本次要使用的相关代码。
+其中`terraform`目录存储其他后续资源(如集成docker) `vmware` 目录中存储我们terraform代码文件
 
 ```shell
+# 创建目录
 mkdir -p terraform/vmware
 ```
 
@@ -46,13 +47,17 @@ mkdir -p terraform/vmware
 
 本次将创建三个文件：
 
-- terraform/vmware/main.tf       资源入口文件：定义各种所需清单
-- terraform/vmware/variables.tf  变量清单文件：定义main.tf中所需的变量名(可维护默认值)
-- terraform/vmware/output.tf     信息输出文件：在虚拟机创建完成后输出的相关信息
+```
+terraform/vmware/main.tf       · 核心资源清单文件：定义各种所需清单  
+terraform/vmware/variables.tf  · 变量清单文件：定义main.tf中所需的变量名(可维护默认值)
+terraform/vmware/output.tf     · 信息输出文件：在虚拟机创建完成后输出的相关信息
+```
 
-编写terraform/vmware/main.tf
+### 编写核心资源清单文件
 
-```terraform
+文件名：`terraform/vmware/main.tf` 
+
+```shell
 provider "vsphere" {
   user                 = var.vsphere_user
   password             = var.vsphere_password
@@ -107,13 +112,20 @@ resource "vsphere_virtual_machine" "linux" {
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
   }
 
-  # 当模板有多块儿磁盘时需要启用该配置
+  # 第二块磁盘配置(当模板有多块儿磁盘时需要启用该配置)
   # disk {
   #   label            = "disk1"
   #   unit_number      = "1"            # 磁盘的单元编号(从0开始,每块儿编号不能重复)
   #   size             = data.vsphere_virtual_machine.template.disks.1.size
   # }
 
+  # 第三块磁盘配置(当模板有多块儿磁盘时需要启用该配置)
+  # disk {
+  #   label            = "disk2"
+  #   unit_number      = "2"            # 磁盘的单元编号(从0开始,每块儿编号不能重复)
+  #   size             = data.vsphere_virtual_machine.template.disks.2.size
+  # }
+  
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
     linked_clone = "true"
@@ -136,47 +148,92 @@ resource "vsphere_virtual_machine" "linux" {
 }
 ```
 
-编写 terraform/vmware/variables.tf
+### 编写变量清单文件
 
-```terraform
-variable "vsphere_server" {}
+文件名：`terraform/vmware/variables.tf`
 
-variable "adminpassword" {}
-
-variable "vsphere_user" {}
-
-variable "vsphere_password" {}
-
-variable "datacenter" {}
-
-variable "datastore" {}
-
-variable "cluster" {}
-
-variable "portgroup" {}
-
-variable "domain_name" {}
-
-variable "default_gw" {}
-
-variable "dns_list" { 
-    default = ["114.114.114.114"]
+```shell
+# VCenter集群配置
+variable "vsphere_server" {
+  description = "配置vCenter服务地址(只需要IP或域名)"
+  default = "192.168.60.1"
 }
 
-variable "template_name" {}
+variable "datacenter" { 
+    description = "配置vCenter数据中心名称 (在vSphere Client-->菜单-->主机和集群-->数据中心处查找)"
+    default = "上海数据中心"
+}
 
-variable "vm_name" {}
+variable "cluster" {  
+    description = "配置vCenter集群名称 (在vSphere Client-->菜单-->主机和集群-->主机和群集-->集群处查找)"
+    default = "测试集群"
+}
 
-variable "vm_ip" {}
+variable "vsphere_user" {
+  description = "配置vCenter用户"
+    default = "administrator@vsphere.local"
+}
 
-variable "vm_cidr" {}
+variable "vsphere_password" {
+  description = "配置vCenter密码"
+    default = "xxxxxxx"
+}
 
-variable "vcpu_count" {}
+# 虚拟机个性化配置
+variable "template_name" { 
+    description = "配置虚拟机模板名称"
+    default = "Centos7-64-Template-2C-4G-200G"
+}
 
-variable "memory" {}
+variable "vm_name" { 
+    description = "配置虚拟机名称"
+    default = "terraform_demo01"
+}
+
+variable "memory" { 
+    description = "配置虚拟机内存(MB)"
+     default = "4096"   
+}
+
+variable "vcpu_count" { 
+    description = "配置虚拟机CPU个数"
+    default = "2"
+}
+
+# 虚拟机网络配置
+variable "vm_ip" { 
+    description = "配置虚拟机IP(为空时则使用DHCP)"
+    default = "192.168.60.188"
+}
+
+variable "vm_cidr" { 
+    description = "配置虚拟机CIDR块"
+    default = "24"
+}
+
+variable "dns_list" {
+    description = "配置虚拟机DNS地址"
+    default = "114.114.114.114"
+}
+
+variable "domain_name" { 
+    description = "配置虚拟机搜索域"
+    default = "localdomain"
+}
+
+variable "default_gw" { 
+    description = "配置虚拟机默认网关地址"
+    default = "192.168.60.1"
+}
+
+variable "portgroup" { 
+    description = "配置虚拟机使用的网络适配器"
+    default = "2"
+}
 ```
+### 编写信息输出文件
 
-编写 terraform/vmware/output.tf 信息输出文件
+文件名：`terraform/vmware/output.tf`
 
 ```terraform
 output "DC_ID" {
@@ -205,25 +262,115 @@ output "Linux-uuid" {
 }
 ```
 
-## 进行配置书写
+## 环境初始化
 
-- todo
+### 修改变量清单配置
+当上述文件都创建完成后，就可以定义各个变量的配置；修改 `terraform/vmware/variables.tf` 文件中的每一个default值来完成配置的定义。
+
+### 环境变量方式写入配置(可选)
+当然你觉得每次都更改大量的variables.tf配置觉得很麻烦，也可以使用注入系统环境变量的方式来写入配置，在terraform中，变量名以`TF_VAR_`开头，后面可以加自己的变量名，如编写env配置文件 `.envfile`
+
+```ini
+TF_VAR_cluster=集群名称
+TF_VAR_datacenter=数据中心
+TF_VAR_vsphere_server=vsphere地址(仅需IP或者域名)
+TF_VAR_vsphere_user=vsphere用户
+TF_VAR_vsphere_password=vsphere密码
+TF_VAR_datastore=数据磁盘
+TF_VAR_vm_name=虚拟机名称
+TF_VAR_memory=虚拟机内存(M)
+TF_VAR_vcpu_count=虚拟机CPU数
+TF_VAR_template_name=模板名称
+TF_VAR_vm_ip=虚拟机IP(为空时为DHCP)
+TF_VAR_vm_cidr=掩码CIDR
+TF_VAR_default_gw=虚拟机默认网关
+TF_VAR_portgroup=虚拟机使用的网络适配器
+TF_VAR_domain_name=虚拟机子域
+```
+
+配置完成后可以立马生效配置，**当使用了env这种方式来生效配置，那么则会覆盖掉variables.tf中的default值**
+
+```shell
+bohai@bohai vmware % for keys in $(cat .envfile);do export ${keys};done
+```
+执行后可以使用 `env | grep TF_VAR` 来查看配置是否都以注入当前shell中
+
+```shell
+bohai@bohai vmware % env | grep TF_VAR
+TF_VAR_cluster=集群名称
+TF_VAR_datacenter=数据中心
+TF_VAR_vsphere_server=vsphere地址(仅需IP或者域名)
+TF_VAR_vsphere_user=vsphere用户
+TF_VAR_vsphere_password=vsphere密码
+TF_VAR_datastore=数据磁盘
+TF_VAR_vm_name=虚拟机名称
+TF_VAR_memory=虚拟机内存(M)
+TF_VAR_vcpu_count=虚拟机CPU数
+TF_VAR_template_name=模板名称
+TF_VAR_vm_ip=虚拟机IP(为空时为DHCP)
+TF_VAR_vm_cidr=掩码CIDR
+TF_VAR_default_gw=虚拟机默认网关
+TF_VAR_dns_list="配置虚拟机DNS地址"
+TF_VAR_portgroup=虚拟机使用的网络适配器
+TF_VAR_domain_name=虚拟机子域
+bohai@bohaideMac-mini vmware % 
+bohai@bohaideMac-mini vmware % 
+```
+
+### 环境初始化
+
+接下来执行 `terraform init`命令，来下载并安装所需环境依赖 (执行一次即可)
 
 ## 创建虚拟机
 
-- todo
+当前面所有的配置都完成后，就可以操作创建虚拟机啦 :) 
+
+```shell
+bohai@bohai vmware % cd terraform/vmware/
+bohai@bohai vmware % terraform apply
+```
+
+如果配置都正确，也已经执行过`terraform init` 那么`apply` 之后则会打印类似我的输出：
+
+![](https://resource.static.tencent.itan90.cn/202310/1697307244518313311.png)
+
+```
+Plan: 1 to add, 0 to change, 0 to destroy.
+```
+
+打印的大致内容也就是需要复核一下相关清单是否都如配置所写或配置清单是否正确，如我的虚拟机配置清单为：`一台名为terraform-demo的2核4G配置虚拟机IP192.168.60.133` 的机器。
+
+如果都配置ok，那么需要我们输入一下 `yes` 来继续下一步都创建动作
+
+![](https://resource.static.tencent.itan90.cn/202310/169730754689848527.png)
+
+于此同时，vsphere的任务栏也有执行进度的列表
+
+![](https://resource.static.tencent.itan90.cn/202310/1697307628127115385.png)
+
+当看到执行返回`Apply complete! Resources: 1 added, 0 changed, 0 destroyed.`后，则说明任务已经完成。
+
+创建完成后,terraform会按照我们之前定义的信息输出文件 `terraform/vmware/output.tf` 输出一些信息；并且会将虚拟机自动开机
+
+![](https://resource.static.tencent.itan90.cn/202310/1697307722962239757.png)
+
+Linux-VM也就是虚拟机名称,Linux-guest-ip、Linux-ip则是虚拟机的IP,接下来通过Vsphere来查看查看`主机名、内存、CPU`是否按照预期要求来创建
+
+![](https://resource.static.tencent.itan90.cn/202310/1697308155510153456.png)
+
+当然如果模板都做的相对来说比较完美，那么我们直接远程上去查看
+
+![](https://resource.static.tencent.itan90.cn/202310/1697308095540194375.png)
+
+至此，通过Terraform来创建虚拟机的的步骤皆已完成～
 
 ## Terraform on docker
 
 某些场景我们可能只需要运行一次性docker容器来完成虚拟机的创建，创建完成相应资源后自动删除该容器；对于这种方式也有相对比较好的解决方法
 
-### 书写dockerfile
+### 编写Dockerfile
 
-进入terraform目录准备我们的相关资源 `cd terraform`
-
-```
-vim dockerfile
-```
+文件名：`terraform/dockerfile`
 
 ```dockerfile
 FROM hashicorp/terraform:latest
@@ -232,7 +379,7 @@ FROM hashicorp/terraform:latest
 COPY vmware /opt/vmware
 
 WORKDIR /opt/vmware
-# 进行初始化操作以便后续直接使用
+# 直接在容器内完成依赖的获取避免运行时造成额外的时间浪费
 RUN terraform init
 ```
 
@@ -241,13 +388,14 @@ RUN terraform init
 接着来构建terraform的docker镜像
 
 ```shell
-docker build -t terraform_vmware:latest .
+bohai@bohai vmware % cd terraform
+bohai@bohai vmware % docker build -t terraform_vmware:latest .
 ```
 
-构建完成后，准备我们的启动参数，修改下列参数尝试启动容器创建虚拟机
+构建完成后，准备我们的启动参数，同样通过`TF_VAR_`的方式，注入容器变量来尝试启动容器即可创建虚拟机
 
 ```shell
-docker run -it --rm \
+bohai@bohai vmware % docker run -it --rm \
 -e TF_VAR_cluster="集群名称" \
 -e TF_VAR_datacenter="集群名称" \
 -e TF_VAR_vsphere_server="vsphere地址(仅需IP或者域名)" \
@@ -258,19 +406,29 @@ docker run -it --rm \
 -e TF_VAR_memory="虚拟机内存(M)" \
 -e TF_VAR_vcpu_count="虚拟机CPU数" \
 -e TF_VAR_template_name="模板名称" \
--e TF_VAR_adminpassword="虚拟机密码(如果允许修改)" \
 -e TF_VAR_vm_ip="虚拟机IP(为空时为DHCP)" \
 -e TF_VAR_vm_cidr=掩码CIDR \
 -e TF_VAR_dns_list="DNS_IP" \
 -e TF_VAR_default_gw="虚拟机默认网关地址" \
 -e TF_VAR_portgroup="虚拟机使用的网络适配器" \
 -e TF_VAR_domain_name="虚拟机子域" \
-terraform_vmware apply --auto-approve
+terraform_vmware apply
 ```
 
 当上述配置全部正确，并执行运行指令后，即可开始创建。
 
+![](https://resource.static.tencent.itan90.cn/202310/1697308774410359498.png)
 
 # 最后
 
-本次所有相关代码都已上传至Git仓库：https://github.com/yaobohai/terraform_vmware
+## 帮助链接
+
+- 本次所有相关代码都已上传至Git仓库：https://github.com/yaobohai/terraform_vmware
+
+## 常见问题
+
+1、为什么修改配置后，重新执行是重建原有虚拟机而不是新建
+
+```shell
+删除 terraform.tfstate 开头的文件即可
+```
