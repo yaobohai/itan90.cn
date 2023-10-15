@@ -425,6 +425,7 @@ terraform_vmware apply
 ## 帮助链接
 
 - 本次所有相关代码都已上传至Git仓库：https://github.com/yaobohai/terraform_vmware
+- terraform在阿里云的最佳实践: https://help.aliyun.com/product/95817.html?spm=a2c4g.95820.0.0.11242aa9498EFO
 
 ## 常见问题
 
